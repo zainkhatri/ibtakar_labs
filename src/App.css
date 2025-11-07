@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&family=Black+Ops+One&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=roca@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700;900&display=swap');
+
+/* Force font loading */
+.font-preload {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900;
+  visibility: hidden;
+  position: absolute;
+}
 
 * {
   margin: 0;
@@ -106,7 +113,7 @@ body {
 }
 
 .brand-name {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--text);
@@ -335,7 +342,7 @@ body:has(.mobile-menu.open) {
 
 
 .hero-title {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -467,7 +474,7 @@ section {
 }
 
 .section-title {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
   text-align: center;
@@ -597,7 +604,7 @@ section {
 }
 
 .service-name {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -605,7 +612,7 @@ section {
 }
 
 .service-price {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
   background: linear-gradient(135deg, var(--jade), var(--sage));
@@ -684,7 +691,7 @@ section {
 }
 
 .managed-plan h3 {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 900;
@@ -692,7 +699,7 @@ section {
 }
 
 .managed-price {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -889,7 +896,7 @@ section {
 }
 
 .viewer-title {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--text);
@@ -1144,7 +1151,7 @@ section {
 }
 
 .testimonial-quote {
-  font-family: 'Roca', 'Space Grotesk', 'Black Ops One', 'Arial Black', sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 4rem;
   color: var(--accent);
   opacity: 0.2;
