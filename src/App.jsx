@@ -35,19 +35,25 @@ function App() {
   };
 
   useEffect(() => {
+    // Reset scroll position on page load
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+    window.scrollTo(0, 0);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    
+
     const handleResize = () => {
       if (window.innerWidth > 768 && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
@@ -243,6 +249,7 @@ function App() {
           </div>
           <div className="nav-links">
             <a href="#services" className="nav-link">Services</a>
+            <a href="#founder" className="nav-link">About</a>
             <a href="#portfolio" className="nav-link">Portfolio</a>
             <a href="#testimonials" className="nav-link">Testimonials</a>
             <a href="#contact" className="nav-link">Contact</a>
@@ -279,6 +286,7 @@ function App() {
             }}
           >
             <a href="#services" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Services</a>
+            <a href="#founder" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</a>
             <a href="#portfolio" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Portfolio</a>
             <a href="#testimonials" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
             <a href="#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a>
@@ -300,7 +308,7 @@ function App() {
         <div className="container">
           <h1 className="hero-title">Professional Website Development</h1>
           <p className="hero-subtitle">
-            Custom React websites that drive results for your business
+            Beautiful websites that get you more customers and grow your business
           </p>
           <div className="hero-cta">
             <a
@@ -358,6 +366,69 @@ function App() {
             <h3>Managed Web Plan (Required)</h3>
             <p className="managed-price">$50/month</p>
             <p>Includes managed hosting, SSL certificates, domain renewal, security updates, up to 30 minutes of content updates monthly, and email support within 2 business days.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet the Founder Section */}
+      <section className="founder" id="founder">
+        <div className="container">
+          <h2 className="section-title">Meet the Founder</h2>
+          <p className="section-subtitle">
+            Building digital experiences with passion and expertise
+          </p>
+
+          <div className="founder-content">
+            <div className="founder-image">
+              <img src="/grad.JPG" alt="Zain Khatri" />
+            </div>
+            <div className="founder-info">
+              <h3 className="founder-name">Zain Khatri</h3>
+              <p className="founder-title">NASA Engineer</p>
+
+              <div className="founder-bio">
+                <p>
+                  With years of experience in web development and a passion for creating
+                  exceptional digital experiences, I founded Ibtakar Labs to help businesses
+                  establish their online presence with professional, high-performance websites.
+                </p>
+                <p>
+                  Every project is an opportunity to blend cutting-edge technology with
+                  thoughtful design. I work closely with each client to understand their
+                  unique needs and deliver solutions that exceed expectations.
+                </p>
+              </div>
+
+              <div className="founder-logos">
+                <img src="/nasa.png" alt="NASA" className="company-logo" />
+                <img src="/logo-ucberkeley.png" alt="UC Berkeley" className="company-logo" />
+                <img src="/ucsd.png" alt="UC San Diego" className="company-logo" />
+              </div>
+
+              <div className="founder-stats">
+                <div className="stat">
+                  <div className="stat-number">20+</div>
+                  <div className="stat-label">Projects Completed</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">100%</div>
+                  <div className="stat-label">Client Satisfaction</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">3+</div>
+                  <div className="stat-label">Years Experience</div>
+                </div>
+              </div>
+
+              <a
+                href="https://zainkhatri.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+              >
+                View Full Portfolio
+              </a>
+            </div>
           </div>
         </div>
       </section>
