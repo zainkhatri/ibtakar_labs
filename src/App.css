@@ -417,8 +417,8 @@ body:has(.mobile-menu.open) {
 }
 
 .btn:hover::before {
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary {
@@ -429,7 +429,6 @@ body:has(.mobile-menu.open) {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
   box-shadow: 0 20px 40px rgba(58, 74, 71, 0.4);
   background: var(--hunter);
 }
@@ -445,7 +444,6 @@ body:has(.mobile-menu.open) {
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: white;
-  transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -457,7 +455,6 @@ body:has(.mobile-menu.open) {
 .btn-outline:hover {
   background: var(--accent);
   color: white;
-  transform: translateY(-2px);
   box-shadow: 0 15px 35px rgba(95, 122, 97, 0.25);
 }
 
@@ -516,6 +513,7 @@ section {
   gap: 1.5rem;
   margin-bottom: 2rem;
   align-items: stretch;
+  contain: layout;
 }
 
 .service-card {
@@ -529,8 +527,8 @@ section {
   flex-direction: column;
   overflow: visible;
   min-height: 100%;
-  will-change: transform;
   margin-top: 16px;
+  contain: layout;
 }
 
 .service-card::before {
@@ -551,7 +549,6 @@ section {
 }
 
 .service-card:hover {
-  transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 30px 60px rgba(95, 122, 97, 0.15),
     0 0 0 2px var(--accent);
@@ -641,7 +638,6 @@ section {
 }
 
 .service-features li:hover {
-  padding-left: 2.25rem;
   color: var(--accent);
 }
 
@@ -1488,19 +1484,19 @@ section {
   }
 
   .btn:active {
-    transform: scale(0.97);
+    opacity: 0.8;
   }
 
   .portfolio-tab:active {
-    transform: scale(0.98);
+    opacity: 0.8;
   }
 
   .service-card:active {
-    transform: translateY(-2px) scale(0.99);
+    opacity: 0.95;
   }
 
   .testimonial-card:active {
-    transform: translateY(-2px) scale(0.99);
+    opacity: 0.95;
   }
 
   .mobile-nav-link:active {
@@ -1615,7 +1611,7 @@ section {
   }
 
   section {
-    padding: 3rem 0;
+    padding: 3.5rem 0;
   }
 
 
@@ -1631,12 +1627,13 @@ section {
   }
 
   .service-card {
-    padding: 1.75rem 1.5rem;
+    padding: 2rem 1.75rem;
     margin-top: 12px;
   }
 
   .service-features li {
     padding: 0.75rem 0;
+    padding-left: 2.5rem;
     font-size: 0.95rem;
   }
 
@@ -1804,7 +1801,7 @@ section {
   }
 
   section {
-    padding: 2.5rem 0;
+    padding: 3rem 0;
   }
 
   .hero-cta {
@@ -1822,14 +1819,19 @@ section {
   }
 
   .service-card {
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.5rem;
     margin-top: 8px;
   }
 
   .service-features li {
     padding: 0.625rem 0;
+    padding-left: 2.5rem;
     font-size: 0.9rem;
     line-height: 1.6;
+  }
+
+  .service-features li:hover {
+    color: var(--accent);
   }
 
   .portfolio-navigation {
@@ -1857,7 +1859,7 @@ section {
   }
 
   .container {
-    padding: 0 1.25rem;
+    padding: 0 1.5rem;
   }
 
   .testimonial-card {
@@ -1865,7 +1867,7 @@ section {
   }
 
   .managed-plan {
-    padding: 1.75rem 1.25rem;
+    padding: 2rem 1.5rem;
   }
 
   .contact {
