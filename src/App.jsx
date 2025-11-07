@@ -420,44 +420,6 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="about">
-        <div className="container">
-          <h2 className="section-title">What You Get</h2>
-          <div className="about-grid">
-            <div className="about-item">
-              <div className="about-icon">⚛️</div>
-              <h3>Modern Technology</h3>
-              <p>Built with React for fast, responsive, and maintainable websites</p>
-            </div>
-            <div className="about-item">
-              <div className="about-icon">📱</div>
-              <h3>Responsive Design</h3>
-              <p>Perfect experience on desktop, tablet, and mobile devices</p>
-            </div>
-            <div className="about-item">
-              <div className="about-icon">🚀</div>
-              <h3>Fast Delivery</h3>
-              <p>Quick turnaround times from 1-3 weeks depending on package</p>
-            </div>
-            <div className="about-item">
-              <div className="about-icon">🔧</div>
-              <h3>Ongoing Support</h3>
-              <p>Managed hosting, updates, and monthly content changes included</p>
-            </div>
-            <div className="about-item">
-              <div className="about-icon">💼</div>
-              <h3>Professional Service</h3>
-              <p>Clear contracts, transparent pricing, and regular communication</p>
-            </div>
-            <div className="about-item">
-              <div className="about-icon">🎯</div>
-              <h3>SEO Optimized</h3>
-              <p>Built with search engine optimization best practices</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials Section */}
       <section className="testimonials" id="testimonials">
