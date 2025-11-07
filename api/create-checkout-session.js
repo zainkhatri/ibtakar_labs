@@ -1,6 +1,8 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
+  console.log('API called with method:', req.method);
+  console.log('Environment check - STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,6 +22,13 @@ export default async function handler(req, res) {
 
   try {
     const { serviceType } = req.body;
+    console.log('Request body:', req.body);
+    console.log('Service type:', serviceType);
+
+    if (!process.env.STRIPE_SECRET_KEY) {
+      console.error('STRIPE_SECRET_KEY environment variable is not set');
+      return res.status(500).json({ error: 'Stripe configuration error' });
+    }
 
     // Service pricing and details
     const services = {
@@ -45,6 +54,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid service type' });
     }
 
+    console.log('Creating Stripe checkout session...');
+    
     // Create Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -62,17 +73,15 @@ export default async function handler(req, res) {
         },
       ],
       mode: 'payment',
-      success_url: `${req.headers.origin || 'http://localhost:5173'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin || 'http://localhost:5173'}/#services`,
+      success_url: `${req.headers.origin || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin || 'http://localhost:3000'}/#services`,
       metadata: {
         service_type: serviceType,
         website: 'ibtakar-labs'
       },
-      customer_creation: 'always',
-      invoice_creation: {
-        enabled: true,
-      },
     });
+
+    console.log('Stripe session created successfully:', session.id);
 
     res.status(200).json({ url: session.url });
   } catch (err) {
