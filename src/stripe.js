@@ -59,16 +59,11 @@ export const createCheckoutSession = async (serviceType) => {
     
   } catch (error) {
     console.error('Error creating checkout session:', error);
-    
-    // Only fallback to Calendly if we explicitly want to
-    if (error.message.includes('404') || error.message.includes('Failed to fetch')) {
-      console.log('API not available, falling back to Calendly');
-      const calendlyUrl = `https://calendly.com/zainnkhatri/30min?utm_source=${serviceType}_package&utm_medium=website&utm_campaign=get_started`;
-      window.open(calendlyUrl, '_blank');
-    } else {
-      // For other errors, show user-friendly message
-      alert('There was an error processing your payment. Please try again or contact us directly.');
-    }
+
+    // Fallback to Calendly for any Stripe errors
+    console.log('Stripe not available, redirecting to Calendly for consultation');
+    const calendlyUrl = `https://calendly.com/zainnkhatri/30min?utm_source=${serviceType}_package&utm_medium=website&utm_campaign=get_started`;
+    window.location.href = calendlyUrl;
   }
 };
 
