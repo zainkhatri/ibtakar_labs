@@ -32,7 +32,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 80px;
+  overscroll-behavior-y: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -56,6 +57,8 @@ body {
   background: var(--bg);
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+  position: relative;
 }
 
 .app {
@@ -513,7 +516,6 @@ section {
   gap: 1.5rem;
   margin-bottom: 2rem;
   align-items: stretch;
-  contain: layout;
 }
 
 .service-card {
@@ -525,10 +527,10 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  overflow: hidden;
   min-height: 100%;
   margin-top: 16px;
-  contain: layout;
+  height: fit-content;
 }
 
 .service-card::before {
@@ -1479,6 +1481,14 @@ section {
 
 /* ===== MOBILE OPTIMIZATIONS ===== */
 @media (hover: none) and (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    -webkit-overflow-scrolling: auto;
+  }
+
   .btn {
     transition: all 0.2s ease;
   }
@@ -1491,6 +1501,17 @@ section {
     opacity: 0.8;
   }
 
+  .service-card {
+    transition: none;
+    height: auto;
+    overflow: visible;
+  }
+
+  .service-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
   .service-card:active {
     opacity: 0.95;
   }
@@ -1501,6 +1522,18 @@ section {
 
   .mobile-nav-link:active {
     background: var(--accent-light);
+  }
+
+  .service-card::before {
+    display: none;
+  }
+
+  .service-features li:hover {
+    color: var(--text);
+  }
+
+  .service-features li:hover::before {
+    transform: none;
   }
 }
 
@@ -1561,6 +1594,11 @@ section {
 }
 
 @media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 70px;
+  }
+
   .nav-links {
     display: none;
   }
@@ -1629,6 +1667,13 @@ section {
   .service-card {
     padding: 2rem 1.75rem;
     margin-top: 12px;
+    transform: none !important;
+    transition: none;
+    height: auto;
+  }
+
+  .service-card:hover {
+    transform: none !important;
   }
 
   .service-features li {
@@ -1774,6 +1819,16 @@ section {
 }
 
 @media (max-width: 480px) {
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 65px;
+    overscroll-behavior: contain;
+  }
+
+  body {
+    overscroll-behavior: contain;
+  }
+
   .hero {
     padding: 3rem 0 2.5rem;
     margin-top: 60px;

@@ -51,10 +51,35 @@ function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Smooth scroll behavior for anchor links on mobile
+    const handleAnchorClick = (e) => {
+      const target = e.target.closest('a[href^="#"]');
+      if (target) {
+        const href = target.getAttribute('href');
+        if (href && href !== '#') {
+          e.preventDefault();
+          const element = document.querySelector(href);
+          if (element) {
+            const isMobile = window.innerWidth <= 768;
+            const offset = isMobile ? 70 : 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: isMobile ? 'auto' : 'smooth'
+            });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
 
     return () => {
+      document.removeEventListener('click', handleAnchorClick);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
