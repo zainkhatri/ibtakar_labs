@@ -417,6 +417,13 @@ function App() {
             <h3>Managed Web Plan (Required)</h3>
             <p className="managed-price">$50/month</p>
             <p>Includes managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, and email support within 2 business days.</p>
+            <button
+              onClick={() => handleCheckout('managed')}
+              disabled={checkoutLoading === 'managed'}
+              className="btn btn-outline managed-plan-btn"
+            >
+              {checkoutLoading === 'managed' ? 'Processing...' : 'Subscribe Now'}
+            </button>
           </div>
         </div>
       </section>

@@ -37,17 +37,27 @@ export default async function handler(req, res) {
       starter: {
         name: 'Starter Website',
         price: 120000, // $1,200 in cents
-        description: '3 simple pages, basic template design, mobile responsive, contact form, SEO optimization'
+        description: '3 simple pages, basic template design, mobile responsive, contact form, SEO optimization',
+        mode: 'payment'
       },
       pro: {
         name: 'Pro Website',
         price: 240000, // $2,400 in cents
-        description: 'Custom visual design & branding, up to 5 dynamic pages, advanced React animations, e-commerce/booking system, content management dashboard, advanced SEO & analytics, performance optimization, Google Analytics integration'
+        description: 'Custom visual design & branding, up to 5 dynamic pages, advanced React animations, e-commerce/booking system, content management dashboard, advanced SEO & analytics, performance optimization, Google Analytics integration',
+        mode: 'payment'
       },
       premium: {
         name: 'Premium Website',
         price: 400000, // $4,000 in cents
-        description: 'Everything in Pro + custom database & API, email automation & marketing, social media integration, payment gateway integration, multi-language support, advanced integrations'
+        description: 'Everything in Pro + custom database & API, email automation & marketing, social media integration, payment gateway integration, multi-language support, advanced integrations',
+        mode: 'payment'
+      },
+      managed: {
+        name: 'Managed Web Plan',
+        price: 5000, // $50 in cents
+        description: 'Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support',
+        mode: 'subscription',
+        recurring: 'month'
       }
     };
 
@@ -57,24 +67,42 @@ export default async function handler(req, res) {
     }
 
     console.log('Creating Stripe checkout session...');
-    
+
+    // Build line items based on service type
+    const lineItems = service.mode === 'subscription' ? [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: service.name,
+            description: service.description,
+          },
+          unit_amount: service.price,
+          recurring: {
+            interval: service.recurring,
+          },
+        },
+        quantity: 1,
+      },
+    ] : [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: service.name,
+            description: service.description,
+          },
+          unit_amount: service.price,
+        },
+        quantity: 1,
+      },
+    ];
+
     // Create Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: service.name,
-              description: service.description,
-            },
-            unit_amount: service.price,
-          },
-          quantity: 1,
-        },
-      ],
-      mode: 'payment',
+      line_items: lineItems,
+      mode: service.mode,
       success_url: `${req.headers.origin || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin || 'http://localhost:3000'}/#services`,
       metadata: {

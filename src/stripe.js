@@ -11,7 +11,7 @@ export const stripeServices = {
     description: "3 simple pages, basic template design, mobile responsive, contact form, SEO optimization"
   },
   pro: {
-    name: "Pro Website", 
+    name: "Pro Website",
     price: "$2,400",
     description: "Custom visual design & branding, up to 5 dynamic pages, advanced React animations, e-commerce/booking system, content management dashboard, advanced SEO & analytics, performance optimization, Google Analytics integration"
   },
@@ -19,6 +19,11 @@ export const stripeServices = {
     name: "Premium Website",
     price: "$4,000+",
     description: "Everything in Pro + custom database & API, email automation & marketing, social media integration, payment gateway integration, multi-language support, advanced integrations"
+  },
+  managed: {
+    name: "Managed Web Plan",
+    price: "$50/month",
+    description: "Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support"
   }
 };
 
@@ -48,8 +53,8 @@ export const createCheckoutSession = async (serviceType) => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log('Stripe session created, redirecting to:', data.url);
-      window.location.href = data.url;
+      console.log('Stripe session created, opening in new tab:', data.url);
+      window.open(data.url, '_blank');
       return;
     } else {
       const errorText = await response.text();
@@ -61,9 +66,9 @@ export const createCheckoutSession = async (serviceType) => {
     console.error('Error creating checkout session:', error);
 
     // Fallback to Calendly for any Stripe errors
-    console.log('Stripe not available, redirecting to Calendly for consultation');
+    console.log('Stripe not available, opening Calendly in new tab for consultation');
     const calendlyUrl = `https://calendly.com/zainnkhatri/30min?utm_source=${serviceType}_package&utm_medium=website&utm_campaign=get_started`;
-    window.location.href = calendlyUrl;
+    window.open(calendlyUrl, '_blank');
   }
 };
 

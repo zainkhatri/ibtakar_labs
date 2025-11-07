@@ -42,7 +42,7 @@ function Success() {
             </div>
 
             <div className="success-return">
-              <a href="/" className="return-link">← Return to Homepage</a>
+              <a href="/" target="_blank" rel="noopener noreferrer" className="return-link">← Return to Homepage</a>
             </div>
 
             {sessionId && (
