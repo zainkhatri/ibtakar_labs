@@ -1500,7 +1500,7 @@ section {
 /* ===== MOBILE OPTIMIZATIONS ===== */
 @media (hover: none) and (pointer: coarse) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
   }
 
   body {
@@ -1515,8 +1515,17 @@ section {
     opacity: 0.8;
   }
 
+  .portfolio-tab {
+    transition: none;
+  }
+
   .portfolio-tab:active {
     opacity: 0.8;
+    transform: none !important;
+  }
+
+  .portfolio-tab:hover {
+    transform: none !important;
   }
 
   .service-card {
@@ -1552,6 +1561,97 @@ section {
 
   .service-features li:hover::before {
     transform: none;
+  }
+}
+
+/* ===== LARGE SCREENS ===== */
+@media (min-width: 1920px) {
+  .service-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .service-name {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-price {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-delivery {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-features li {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    padding-left: 2.5rem;
+  }
+
+  .managed-plan {
+    padding: 2.5rem 3rem;
+  }
+
+  .managed-plan h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .managed-price {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .managed-plan p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .service-card {
+    padding: 2rem 1.75rem;
+  }
+
+  .service-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .service-price {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-delivery {
+    font-size: 0.95rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .service-features li {
+    font-size: 0.95rem;
+    padding: 0.45rem 0;
+    padding-left: 2.25rem;
+  }
+
+  .managed-plan {
+    padding: 2.25rem 2.5rem;
+  }
+
+  .managed-plan h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .managed-price {
+    font-size: 2rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .managed-plan p {
+    font-size: 0.95rem;
   }
 }
 
@@ -1631,8 +1731,12 @@ section {
 
 @media (max-width: 768px) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
     scroll-padding-top: 65px;
+  }
+
+  * {
+    scroll-behavior: auto !important;
   }
 
   .nav-links {
@@ -1721,13 +1825,14 @@ section {
   .portfolio-navigation {
     padding: 0.625rem 0.75rem;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
+    scroll-snap-type: none;
   }
 
   .portfolio-tab {
-    scroll-snap-align: start;
+    scroll-snap-align: none;
     min-height: 44px;
     padding: 0.625rem 0.875rem;
+    flex-shrink: 0;
   }
 
   .viewer-header {
@@ -1908,9 +2013,13 @@ section {
 
 @media (max-width: 480px) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
     scroll-padding-top: 65px;
     overscroll-behavior: contain;
+  }
+
+  * {
+    scroll-behavior: auto !important;
   }
 
   body {

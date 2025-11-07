@@ -67,7 +67,7 @@ function App() {
 
             window.scrollTo({
               top: offsetPosition,
-              behavior: isMobile ? 'auto' : 'smooth'
+              behavior: 'auto'
             });
           }
         }
