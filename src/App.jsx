@@ -4,6 +4,11 @@ import { ref, push, onValue, query, orderByChild } from 'firebase/database'
 import './App.css'
 
 function App() {
+  // Disable scroll restoration immediately
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual';
+  }
+
   const [activeProject, setActiveProject] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,10 +41,15 @@ function App() {
 
   useEffect(() => {
     // Reset scroll position on page load
+    window.history.scrollRestoration = 'manual';
     if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname);
     }
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
