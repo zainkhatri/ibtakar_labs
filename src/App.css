@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -53,6 +54,7 @@ body {
   line-height: 1.6;
   background: var(--bg);
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .app {
@@ -113,7 +115,7 @@ body {
 }
 
 .brand-name {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   color: var(--text);
@@ -342,7 +344,7 @@ body:has(.mobile-menu.open) {
 
 
 .hero-title {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -474,7 +476,7 @@ section {
 }
 
 .section-title {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
   text-align: center;
@@ -604,7 +606,7 @@ section {
 }
 
 .service-name {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -612,7 +614,7 @@ section {
 }
 
 .service-price {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 2.5rem;
   font-weight: 900;
   background: linear-gradient(135deg, var(--jade), var(--sage));
@@ -691,7 +693,7 @@ section {
 }
 
 .managed-plan h3 {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: 900;
@@ -699,7 +701,7 @@ section {
 }
 
 .managed-price {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 1rem;
@@ -896,7 +898,7 @@ section {
 }
 
 .viewer-title {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--text);
@@ -1151,7 +1153,7 @@ section {
 }
 
 .testimonial-quote {
-  font-family: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'roca-two', 'roca', 'proxima-nova', 'futura-pt', 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 4rem;
   color: var(--accent);
   opacity: 0.2;
@@ -1331,6 +1333,33 @@ section {
   border-radius: 4px;
 }
 
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    transition: all 0.2s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .portfolio-tab:active {
+    transform: scale(0.98);
+  }
+
+  .service-card:active {
+    transform: translateY(-2px) scale(0.99);
+  }
+
+  .testimonial-card:active {
+    transform: translateY(-2px) scale(0.99);
+  }
+
+  .mobile-nav-link:active {
+    background: var(--accent-light);
+  }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1024px) {
   .nav-links {
@@ -1382,7 +1411,7 @@ section {
   .nav-links {
     display: none;
   }
-  
+
   .mobile-menu-btn {
     display: block;
   }
@@ -1394,7 +1423,7 @@ section {
   .brand-tagline {
     font-size: 0.65rem;
   }
-  
+
   .logo-icon {
     width: 36px;
     height: 36px;
@@ -1415,25 +1444,71 @@ section {
     line-height: 1.5;
   }
 
+  .hero-cta {
+    gap: 1rem;
+  }
+
+  .btn {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+
   .section-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 3rem 0;
   }
 
 
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .testimonials-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
-  
+
   .service-card {
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.5rem;
     margin-top: 12px;
+  }
+
+  .service-features li {
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  .portfolio-navigation {
+    padding: 0.75rem 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+
+  .portfolio-tab {
+    scroll-snap-align: start;
+    min-height: 44px;
+  }
+
+  .iframe-container {
+    height: 450px;
+  }
+
+  .testimonial-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .contact {
+    padding: 4rem 0;
+  }
+
+  .managed-plan {
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
   }
 
   .section-title {
@@ -1507,46 +1582,68 @@ section {
 
 @media (max-width: 480px) {
   .hero {
-    padding: 3rem 0 2rem;
+    padding: 3rem 0 2.5rem;
     margin-top: 60px;
   }
 
   .hero-title {
-    font-size: 2rem;
-    line-height: 1.1;
+    font-size: 1.85rem;
+    line-height: 1.15;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.65rem;
+    margin-bottom: 0.75rem;
   }
 
   .section-subtitle {
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  section {
+    padding: 2.5rem 0;
   }
 
   .hero-cta {
     flex-direction: column;
     width: 100%;
-    gap: 0.75rem;
+    gap: 0.875rem;
   }
 
   .btn {
     width: 100%;
     justify-content: center;
-    padding: 1rem 2rem;
-    font-size: 0.95rem;
+    padding: 1.125rem 2rem;
+    font-size: 1rem;
+    min-height: 52px;
   }
 
   .service-card {
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1.25rem;
     margin-top: 8px;
+  }
+
+  .service-features li {
+    padding: 0.625rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .portfolio-navigation {
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .portfolio-tab {
+    padding: 0.75rem 1rem;
+    min-height: 48px;
   }
   
   .popular-badge {
@@ -1564,12 +1661,24 @@ section {
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
-  .portfolio-tab {
-    padding: 0.625rem 0.75rem;
-    font-size: 0.85rem;
+  .testimonial-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .managed-plan {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .contact {
+    padding: 3.5rem 0;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
   }
 
   .tab-category {
@@ -1577,15 +1686,19 @@ section {
   }
 
   .tab-name {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .iframe-container {
-    height: 350px;
+    height: 400px;
   }
 
   .footer {
     padding: 2.5rem 0;
+  }
+
+  .footer p {
+    font-size: 0.875rem;
   }
   
   .section-subtitle {
