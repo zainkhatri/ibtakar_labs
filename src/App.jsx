@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { database } from './firebase'
 import { ref, push, onValue, query, orderByChild } from 'firebase/database'
+import { createCheckoutSession } from './stripe'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
     text: '',
     rating: 5
   });
+  const [checkoutLoading, setCheckoutLoading] = useState(null);
 
   // Profanity filter - basic word list (you can expand this)
   const profanityList = [
@@ -133,18 +135,20 @@ function App() {
       name: "Starter Website",
       price: "$1,200",
       delivery: "1 week",
+      stripeType: "starter",
       features: [
         "3 simple pages",
         "Basic template design",
         "Mobile responsive",
         "Contact form",
-        "1 revision round"
+        "SEO optimization"
       ]
     },
     {
       name: "Pro Website",
       price: "$2,400",
       delivery: "2 weeks",
+      stripeType: "pro",
       features: [
         "Custom visual design & branding",
         "Up to 5 dynamic pages",
@@ -153,7 +157,7 @@ function App() {
         "Content management dashboard",
         "Advanced SEO & analytics",
         "Performance optimization",
-        "2 revision rounds"
+        "Google Analytics integration"
       ],
       popular: true
     },
@@ -161,6 +165,7 @@ function App() {
       name: "Premium Website",
       price: "$4,000+",
       delivery: "3-4 weeks",
+      stripeType: "premium",
       features: [
         "Everything in Pro +",
         "Custom database & API",
@@ -168,7 +173,7 @@ function App() {
         "Social media integration",
         "Payment gateway integration",
         "Multi-language support",
-        "Unlimited revisions"
+        "Advanced integrations"
       ]
     }
   ];
@@ -266,6 +271,18 @@ function App() {
     }
     
     return stars;
+  };
+
+  const handleCheckout = async (serviceType) => {
+    setCheckoutLoading(serviceType);
+    try {
+      await createCheckoutSession(serviceType);
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('There was an error processing your request. Please try again or contact us directly.');
+    } finally {
+      setCheckoutLoading(null);
+    }
   };
 
   return (
@@ -385,14 +402,13 @@ function App() {
                     <li key={i}>{feature}</li>
                   ))}
                 </ul>
-                <a
-                  href="https://calendly.com/zainnkhatri/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => handleCheckout(service.stripeType)}
+                  disabled={checkoutLoading === service.stripeType}
                   className="btn btn-outline"
                 >
-                  Get Started
-                </a>
+                  {checkoutLoading === service.stripeType ? 'Processing...' : 'Get Started'}
+                </button>
               </div>
             ))}
           </div>
@@ -400,7 +416,7 @@ function App() {
           <div className="managed-plan">
             <h3>Managed Web Plan (Required)</h3>
             <p className="managed-price">$50/month</p>
-            <p>Includes managed hosting, SSL certificates, domain renewal, security updates, up to 30 minutes of content updates monthly, and email support within 2 business days.</p>
+            <p>Includes managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, and email support within 2 business days.</p>
           </div>
         </div>
       </section>

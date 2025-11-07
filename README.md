@@ -1,16 +1,64 @@
-# React + Vite
+# Ibtakar Labs Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professional website development services with integrated Stripe payments.
 
-Currently, two official plugins are available:
+## Development Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Quick Start (Frontend Only)
+```bash
+npm run dev
+```
+This runs the frontend only. Payment buttons will fallback to Calendly.
 
-## React Compiler
+### Full Development (Frontend + API)
+```bash
+npm run dev:full
+```
+This runs both frontend and backend API routes using Vercel dev server.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Note**: For full Stripe integration testing, use `npm run dev:full`
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ✅ Responsive design
+- ✅ Service packages with pricing
+- ✅ Stripe payment integration
+- ✅ Success page handling
+- ✅ Firebase reviews system
+- ✅ Portfolio showcase
+- ✅ Contact forms
+
+## Payment Integration
+
+### Development
+- Uses Vercel dev server for API routes
+- Fallback to Calendly if API unavailable
+- Test with Stripe test cards
+
+### Production
+- Secure server-side Stripe integration
+- Environment variables for API keys
+- Full payment processing
+
+## Deployment
+
+Deploy to Vercel for automatic API route handling:
+
+```bash
+vercel --prod
+```
+
+## Environment Variables
+
+Set these in Vercel dashboard or `.env.local`:
+
+```
+STRIPE_SECRET_KEY=sk_test_...
+```
+
+## Testing Payments
+
+Use Stripe test cards:
+- **Success**: 4242 4242 4242 4242
+- **Decline**: 4000 0000 0000 0002
+- **3D Secure**: 4000 0025 0000 3155
