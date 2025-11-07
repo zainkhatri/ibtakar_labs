@@ -659,7 +659,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2024 Ibtakar Labs. Professional Website Development Services.</p>
+          <p>&copy; 2025 Ibtakar Labs. Professional Website Development Services.</p>
           <p>
             <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer">zainkhatri.com</a>
             {' • '}
