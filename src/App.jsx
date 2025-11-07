@@ -93,10 +93,10 @@ function App() {
       price: "$1,200",
       delivery: "1 week",
       features: [
-        "Up to 5 pages",
-        "Responsive React design",
-        "Basic SEO optimization",
-        "Google Analytics setup",
+        "3 simple pages",
+        "Basic template design",
+        "Mobile responsive",
+        "Contact form",
         "1 revision round"
       ]
     },
@@ -105,14 +105,13 @@ function App() {
       price: "$2,400",
       delivery: "2 weeks",
       features: [
-        "Custom visual design",
-        "Up to 10 pages",
-        "Advanced React components",
-        "Reservation/ordering system integration",
-        "Content management system (CMS)",
-        "Contact forms with email routing",
-        "Social media integration",
-        "Enhanced SEO",
+        "Custom visual design & branding",
+        "Up to 5 dynamic pages",
+        "Advanced React animations",
+        "E-commerce/booking system",
+        "Content management dashboard",
+        "Advanced SEO & analytics",
+        "Performance optimization",
         "2 revision rounds"
       ],
       popular: true
@@ -120,17 +119,15 @@ function App() {
     {
       name: "Premium Website",
       price: "$4,000+",
-      delivery: "3 weeks",
+      delivery: "3-4 weeks",
       features: [
-        "Multi-location support",
-        "Custom database design",
-        "Loyalty program integration",
-        "Newsletter/email marketing setup",
-        "Advanced performance optimization",
-        "Priority support and consultation",
-        "Custom integrations (payment gateways, APIs)",
-        "Comprehensive testing and QA",
-        "3 revision rounds"
+        "Everything in Pro +",
+        "Custom database & API",
+        "Email automation & marketing",
+        "Social media integration",
+        "Payment gateway integration",
+        "Multi-language support",
+        "Unlimited revisions"
       ]
     }
   ];
