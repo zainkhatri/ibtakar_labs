@@ -61,7 +61,7 @@ function App() {
           const element = document.querySelector(href);
           if (element) {
             const isMobile = window.innerWidth <= 768;
-            const offset = isMobile ? 70 : 100;
+            const offset = isMobile ? 65 : 70;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -460,33 +460,31 @@ function App() {
 
       {/* Portfolio Section */}
       <section className="portfolio" id="portfolio">
-        <div className="container">
+        <div className="container portfolio-container">
           <h2 className="section-title">Portfolio</h2>
           <p className="section-subtitle">
             Explore live examples of my recent work across various industries
           </p>
 
           <div className="portfolio-showcase">
-            <div className="portfolio-navigation">
-              {portfolioItems.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setActiveProject(index);
-                    setIframeLoading(true);
-                  }}
-                  className={`portfolio-tab ${activeProject === index ? 'active' : ''}`}
-                >
-                  <span className="tab-category">{item.category}</span>
-                  <span className="tab-name">{item.name}</span>
-                </button>
-              ))}
-            </div>
-
             <div className="portfolio-viewer">
               <div className="viewer-header">
+                <div className="portfolio-navigation">
+                  {portfolioItems.map((item, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setActiveProject(index);
+                        setIframeLoading(true);
+                      }}
+                      className={`portfolio-tab ${activeProject === index ? 'active' : ''}`}
+                    >
+                      <span className="tab-category">{item.category}</span>
+                      <span className="tab-name">{item.name}</span>
+                    </button>
+                  ))}
+                </div>
                 <div className="viewer-info">
-                  <h3 className="viewer-title">{portfolioItems[activeProject].name}</h3>
                   <p className="viewer-description">{portfolioItems[activeProject].description}</p>
                   <a
                     href={portfolioItems[activeProject].url}
