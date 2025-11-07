@@ -56,16 +56,16 @@ function App() {
 
   const portfolioItems = [
     {
-      name: "Portfolio Site",
-      url: "https://zainkhatri.com",
-      description: "Personal portfolio showcasing web development mastery",
-      category: "Portfolio"
-    },
-    {
       name: "Interactive App",
       url: "https://meetyourmaker.vercel.app",
       description: "Interactive web application with dynamic features",
       category: "Web App"
+    },
+    {
+      name: "Restaurant Website",
+      url: "https://bholatskitchen.com",
+      description: "Full-featured restaurant website with ordering",
+      category: "E-commerce"
     },
     {
       name: "Organization Site",
@@ -80,10 +80,10 @@ function App() {
       category: "Portfolio"
     },
     {
-      name: "Restaurant Website",
-      url: "https://bholatskitchen.com",
-      description: "Full-featured restaurant website with ordering",
-      category: "E-commerce"
+      name: "Portfolio Site",
+      url: "https://zainkhatri.com",
+      description: "Personal portfolio showcasing web development mastery",
+      category: "Portfolio"
     }
   ];
 
