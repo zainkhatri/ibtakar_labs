@@ -1134,11 +1134,13 @@ section {
 }
 
 .portfolio-iframe {
-  width: 100%;
-  height: 100%;
+  width: 142.857%;
+  height: 142.857%;
   border: none;
   background: white;
   transition: opacity 0.3s ease;
+  transform: scale(0.7);
+  transform-origin: 0 0;
 }
 
 .portfolio-iframe:hover {
