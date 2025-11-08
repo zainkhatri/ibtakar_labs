@@ -375,11 +375,11 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="hero">
+      <section className="hero" aria-label="Hero section">
         <div className="container">
-          <h1 className="hero-title">Professional Website Development</h1>
+          <h1 className="hero-title">Professional Website Development Services</h1>
           <p className="hero-subtitle">
-            Beautiful websites that get you more customers and grow your business
+            Custom React websites built by NASA engineer. Beautiful, fast, and optimized for search engines. Get more customers and grow your business with expert web development.
           </p>
           <div className="hero-cta">
             <a
@@ -400,11 +400,11 @@ function App() {
 
 
       {/* Services Section */}
-      <section className="services" id="services">
+      <section className="services" id="services" aria-labelledby="services-heading">
         <div className="container">
-          <h2 className="section-title">Services & Pricing</h2>
+          <h2 id="services-heading" className="section-title">Web Development Services & Pricing</h2>
           <p className="section-subtitle">
-            Professional packages designed to meet your needs. All packages include responsive design and require a Managed Web Plan ($50/month) for hosting and support.
+            Affordable professional website packages starting at $1,200. All packages include responsive design, SEO optimization, and mobile-first development. Managed hosting available for $50/month.
           </p>
 
           <div className="services-grid">
@@ -451,16 +451,16 @@ function App() {
       </section>
 
       {/* Meet the Founder Section */}
-      <section className="founder" id="founder">
+      <section className="founder" id="founder" aria-labelledby="founder-heading">
         <div className="container">
-          <h2 className="section-title">Meet the Founder</h2>
+          <h2 id="founder-heading" className="section-title">Meet the Founder - NASA Engineer & Web Developer</h2>
           <p className="section-subtitle">
-            Building digital experiences with passion and expertise
+            Zain Khatri - Building digital experiences with NASA-level precision and expertise. UC Berkeley & UC San Diego graduate.
           </p>
 
           <div className="founder-content">
             <div className="founder-image">
-              <img src="/grad.JPG" alt="Zain Khatri" />
+              <img src="/grad.JPG" alt="Zain Khatri - NASA Engineer and Professional Web Developer" />
             </div>
             <div className="founder-info">
               <h3 className="founder-name">Zain Khatri</h3>
@@ -480,9 +480,9 @@ function App() {
               </div>
 
               <div className="founder-logos">
-                <img src="/nasa.png" alt="NASA" className="company-logo" />
-                <img src="/logo-ucberkeley.png" alt="UC Berkeley" className="company-logo" />
-                <img src="/ucsd.png" alt="UC San Diego" className="company-logo" />
+                <img src="/nasa.png" alt="NASA - National Aeronautics and Space Administration" className="company-logo" />
+                <img src="/logo-ucberkeley.png" alt="UC Berkeley - University of California Berkeley" className="company-logo" />
+                <img src="/ucsd.png" alt="UC San Diego - University of California San Diego" className="company-logo" />
               </div>
 
               <div className="founder-stats">
@@ -515,11 +515,11 @@ function App() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="portfolio" id="portfolio">
+      <section className="portfolio" id="portfolio" aria-labelledby="portfolio-heading">
         <div className="container portfolio-container">
-          <h2 className="section-title">Portfolio</h2>
+          <h2 id="portfolio-heading" className="section-title">Web Development Portfolio</h2>
           <p className="section-subtitle">
-            Explore live examples of my recent work across various industries
+            Explore live examples of professional websites including e-commerce, portfolios, and business sites. Real projects for real clients.
           </p>
 
           <div className="portfolio-showcase">
@@ -570,11 +570,11 @@ function App() {
 
 
       {/* Testimonials Section */}
-      <section className="testimonials" id="testimonials">
+      <section className="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
         <div className="container">
-          <h2 className="section-title">What Clients Say</h2>
+          <h2 id="testimonials-heading" className="section-title">Client Reviews & Testimonials</h2>
           <p className="section-subtitle">
-            Don't just take my word for it - hear from satisfied clients
+            5-star rated web development services. Read reviews from satisfied clients who trusted us with their websites.
           </p>
 
           <div className="reviews-container">
@@ -683,11 +683,11 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section className="contact" id="contact">
+      <section className="contact" id="contact" aria-labelledby="contact-heading">
         <div className="container">
-          <h2 className="section-title">Let's Work Together</h2>
+          <h2 id="contact-heading" className="section-title">Let's Work Together - Free Consultation</h2>
           <p className="contact-text">
-            Schedule a free consultation to discuss your project
+            Schedule a free 30-minute consultation to discuss your website project. Get expert advice on web development, pricing, and timeline.
           </p>
           <a
             href="https://calendly.com/zainnkhatri/30min"

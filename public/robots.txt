@@ -1,0 +1,21 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas (add if you have any)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Crawl-delay (optional, helps prevent overloading)
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://ibtakarlabs.com/sitemap.xml
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /

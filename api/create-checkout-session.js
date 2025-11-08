@@ -32,41 +32,77 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Stripe configuration error' });
     }
 
-    // Map service types to Stripe Price IDs (live mode)
-    const priceIds = {
-      starter: 'price_1SRK882MvdGcw5oapmDRabcu',    // Starter Website - $1,200
-      pro: 'price_1SRK7k2MvdGcw5oaQ6pkkfJV',        // Pro Website - $2,400
-      premium: 'price_1SRK7H2MvdGcw5oaAjwaYO6Y',    // Premium Website - $4,000
-      managed: 'price_1SRK8z2MvdGcw5oaNDOWT7Q8'     // Managed Web Plan - $50/month
+    // Service pricing and details
+    const services = {
+      starter: {
+        name: 'Starter Website',
+        price: 120000, // $1,200 in cents
+        description: '3 simple pages, basic template design, mobile responsive, contact form, SEO optimization',
+        mode: 'payment'
+      },
+      pro: {
+        name: 'Pro Website',
+        price: 240000, // $2,400 in cents
+        description: 'Custom visual design & branding, up to 5 dynamic pages, advanced React animations, e-commerce/booking system, content management dashboard, advanced SEO & analytics, performance optimization, Google Analytics integration',
+        mode: 'payment'
+      },
+      premium: {
+        name: 'Premium Website',
+        price: 400000, // $4,000 in cents
+        description: 'Everything in Pro + custom database & API, email automation & marketing, social media integration, payment gateway integration, multi-language support, advanced integrations',
+        mode: 'payment'
+      },
+      managed: {
+        name: 'Managed Web Plan',
+        price: 5000, // $50 in cents
+        description: 'Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support',
+        mode: 'subscription',
+        recurring: 'month'
+      }
     };
 
-    // Determine payment mode
-    const paymentModes = {
-      starter: 'payment',
-      pro: 'payment',
-      premium: 'payment',
-      managed: 'subscription'
-    };
-
-    const priceId = priceIds[serviceType];
-    const mode = paymentModes[serviceType];
-
-    if (!priceId || !mode) {
+    const service = services[serviceType];
+    if (!service) {
       return res.status(400).json({ error: 'Invalid service type' });
     }
 
-    console.log('Creating Stripe checkout session with Price ID:', priceId);
+    console.log('Creating Stripe checkout session...');
 
-    // Create Checkout Session using Price ID
+    // Build line items based on service type
+    const lineItems = service.mode === 'subscription' ? [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: service.name,
+            description: service.description,
+          },
+          unit_amount: service.price,
+          recurring: {
+            interval: service.recurring,
+          },
+        },
+        quantity: 1,
+      },
+    ] : [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: service.name,
+            description: service.description,
+          },
+          unit_amount: service.price,
+        },
+        quantity: 1,
+      },
+    ];
+
+    // Create Checkout Session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      mode: mode,
+      line_items: lineItems,
+      mode: service.mode,
       success_url: `${req.headers.origin || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin || 'http://localhost:3000'}/#services`,
       metadata: {
