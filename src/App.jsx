@@ -4,6 +4,21 @@ import { ref, push, onValue, query, orderByChild } from 'firebase/database'
 import { createCheckoutSession } from './stripe'
 import './App.css'
 
+// Mobile detection utility
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         (window.innerWidth <= 768);
+};
+
+// Handle link navigation - redirect on mobile, open new tab on desktop
+const handleLinkClick = (e, url) => {
+  if (isMobileDevice()) {
+    e.preventDefault();
+    window.location.href = url;
+  }
+  // On desktop, let the default behavior (target="_blank") work
+};
+
 function App() {
   // Disable scroll restoration immediately
   if ('scrollRestoration' in window.history) {
@@ -310,6 +325,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-small"
+              onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
             >
               Book Consultation
             </a>
@@ -347,7 +363,10 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary mobile-cta-btn"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min');
+                setMobileMenuOpen(false);
+              }}
             >
               Book Consultation
             </a>
@@ -368,6 +387,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
+              onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
             >
               Schedule Consultation
             </a>
@@ -483,6 +503,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline"
+                onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}
               >
                 View Full Portfolio
               </a>
@@ -524,6 +545,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="viewer-link"
+                    onClick={(e) => handleLinkClick(e, portfolioItems[activeProject].url)}
                   >
                     Visit Live Site →
                   </a>
@@ -670,11 +692,12 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary btn-large"
+            onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
           >
             Schedule Free Consultation
           </a>
           <div className="contact-info">
-            <p>Visit <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer">zainkhatri.com</a></p>
+            <p>Visit <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}>zainkhatri.com</a></p>
           </div>
         </div>
       </section>
@@ -684,9 +707,9 @@ function App() {
         <div className="container">
           <p>&copy; 2025 Ibtakar Labs. Professional Website Development Services.</p>
           <p>
-            <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer">zainkhatri.com</a>
+            <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}>zainkhatri.com</a>
             {' • '}
-            <a href="https://calendly.com/zainnkhatri/30min" target="_blank" rel="noopener noreferrer">Schedule Meeting</a>
+            <a href="https://calendly.com/zainnkhatri/30min" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}>Schedule Meeting</a>
           </p>
         </div>
       </footer>

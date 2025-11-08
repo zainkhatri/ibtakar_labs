@@ -1,6 +1,21 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
+// Mobile detection utility
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         (window.innerWidth <= 768);
+};
+
+// Handle link navigation - redirect on mobile, open new tab on desktop
+const handleLinkClick = (e, url) => {
+  if (isMobileDevice()) {
+    e.preventDefault();
+    window.location.href = url;
+  }
+  // On desktop, let the default behavior (target="_blank") work
+};
+
 function Success() {
   const [sessionId, setSessionId] = useState(null);
 
@@ -36,13 +51,27 @@ function Success() {
               <a href="mailto:zainnkhatri@gmail.com" className="btn btn-primary">
                 Email Me
               </a>
-              <a href="https://calendly.com/zainnkhatri/30min" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <a
+                href="https://calendly.com/zainnkhatri/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
+              >
                 Schedule a Call
               </a>
             </div>
 
             <div className="success-return">
-              <a href="/" target="_blank" rel="noopener noreferrer" className="return-link">← Return to Homepage</a>
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="return-link"
+                onClick={(e) => handleLinkClick(e, '/')}
+              >
+                ← Return to Homepage
+              </a>
             </div>
 
             {sessionId && (

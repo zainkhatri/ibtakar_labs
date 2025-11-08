@@ -3,6 +3,12 @@ import { loadStripe } from '@stripe/stripe-js';
 // Initialize Stripe with your publishable key
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
+// Mobile detection utility
+const isMobileDevice = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         (window.innerWidth <= 768);
+};
+
 // Service packages
 export const stripeServices = {
   starter: {
@@ -53,8 +59,13 @@ export const createCheckoutSession = async (serviceType) => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log('Stripe session created, opening in new tab:', data.url);
-      window.open(data.url, '_blank');
+      if (isMobileDevice()) {
+        console.log('Stripe session created, redirecting on mobile:', data.url);
+        window.location.href = data.url;
+      } else {
+        console.log('Stripe session created, opening in new tab:', data.url);
+        window.open(data.url, '_blank');
+      }
       return;
     } else {
       const errorText = await response.text();
@@ -66,9 +77,14 @@ export const createCheckoutSession = async (serviceType) => {
     console.error('Error creating checkout session:', error);
 
     // Fallback to Calendly for any Stripe errors
-    console.log('Stripe not available, opening Calendly in new tab for consultation');
     const calendlyUrl = `https://calendly.com/zainnkhatri/30min?utm_source=${serviceType}_package&utm_medium=website&utm_campaign=get_started`;
-    window.open(calendlyUrl, '_blank');
+    if (isMobileDevice()) {
+      console.log('Stripe not available, redirecting to Calendly on mobile for consultation');
+      window.location.href = calendlyUrl;
+    } else {
+      console.log('Stripe not available, opening Calendly in new tab for consultation');
+      window.open(calendlyUrl, '_blank');
+    }
   }
 };
 
