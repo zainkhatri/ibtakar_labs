@@ -459,7 +459,7 @@ function App() {
       {/* Meet the Founder Section */}
       <section className="founder" id="founder" aria-labelledby="founder-heading">
         <div className="container">
-          <h2 id="founder-heading" className="section-title">Meet the Founder - NASA Engineer & Web Developer</h2>
+          <h2 id="founder-heading" className="section-title">Meet the Founder</h2>
           <p className="section-subtitle">
             Zain Khatri - Building digital experiences with NASA-level precision and expertise. UC Berkeley & UC San Diego graduate.
           </p>
@@ -693,9 +693,9 @@ function App() {
       {/* Contact Section */}
       <section className="contact" id="contact" aria-labelledby="contact-heading">
         <div className="container">
-          <h2 id="contact-heading" className="section-title">Let's Work Together - Free Consultation</h2>
+          <h2 id="contact-heading" className="section-title">Let's Work Together</h2>
           <p className="contact-text">
-            Schedule a free 30-minute consultation to discuss your website project. Get expert advice on web development, pricing, and timeline.
+            Schedule a 30-minute consultation to discuss your website project. Get expert advice on web development, pricing, and timeline.
           </p>
           <a
             href="https://calendly.com/zainnkhatri/30min"
@@ -704,7 +704,7 @@ function App() {
             className="btn btn-primary btn-large"
             onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
           >
-            Schedule Free Consultation
+            Schedule a Consultation
           </a>
           <div className="contact-info">
             <p>Visit <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}>zainkhatri.com</a></p>
