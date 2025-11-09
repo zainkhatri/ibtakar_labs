@@ -375,11 +375,11 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="hero" aria-label="Hero section">
+      <header className="hero" aria-label="Hero section">
         <div className="container">
           <h1 className="hero-title">Professional Website Development Services</h1>
           <p className="hero-subtitle">
-            Custom React websites built by NASA engineer. Beautiful, fast, and optimized for search engines. Get more customers and grow your business with expert web development.
+            Custom websites built for small businesses. Designed to help you look professional and attract more customers online.
           </p>
           <div className="hero-cta">
             <a
@@ -396,7 +396,7 @@ function App() {
             </a>
           </div>
         </div>
-      </section>
+      </header>
 
 
       {/* Services Section */}
@@ -407,17 +407,22 @@ function App() {
             Affordable professional website packages starting at $1,200. All packages include responsive design, SEO optimization, and mobile-first development. Managed hosting available for $50/month.
           </p>
 
-          <div className="services-grid">
+          <div className="services-grid" role="list" aria-label="Website development service packages">
             {services.map((service, index) => (
-              <div
+              <article
                 key={index}
                 className={`service-card ${service.popular ? 'popular' : ''}`}
+                role="listitem"
+                itemScope
+                itemType="https://schema.org/Service"
               >
                 {service.popular && <div className="popular-badge">Most Popular</div>}
-                <h3 className="service-name">{service.name}</h3>
-                <div className="service-price">{service.price}</div>
+                <h3 className="service-name" itemProp="name">{service.name}</h3>
+                <div className="service-price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+                  <span itemProp="price">{service.price}</span>
+                </div>
                 <div className="service-delivery">Delivery: {service.delivery}</div>
-                <ul className="service-features">
+                <ul className="service-features" itemProp="description">
                   {service.features.map((feature, i) => (
                     <li key={i}>{feature}</li>
                   ))}
@@ -426,10 +431,11 @@ function App() {
                   onClick={() => handleCheckout(service.stripeType)}
                   disabled={checkoutLoading === service.stripeType}
                   className="btn btn-outline"
+                  aria-label={`Get started with ${service.name} package`}
                 >
                   {checkoutLoading === service.stripeType ? 'Processing...' : 'Get Started'}
                 </button>
-              </div>
+              </article>
             ))}
           </div>
 
@@ -458,13 +464,13 @@ function App() {
             Zain Khatri - Building digital experiences with NASA-level precision and expertise. UC Berkeley & UC San Diego graduate.
           </p>
 
-          <div className="founder-content">
+          <div className="founder-content" itemScope itemType="https://schema.org/Person">
             <div className="founder-image">
-              <img src="/grad.JPG" alt="Zain Khatri - NASA Engineer and Professional Web Developer" />
+              <img src="/grad.JPG" alt="Zain Khatri - NASA Engineer and Professional Web Developer" itemProp="image" />
             </div>
             <div className="founder-info">
-              <h3 className="founder-name">Zain Khatri</h3>
-              <p className="founder-title">NASA Engineer</p>
+              <h3 className="founder-name" itemProp="name">Zain Khatri</h3>
+              <p className="founder-title" itemProp="jobTitle">NASA Engineer</p>
 
               <div className="founder-bio">
                 <p>
@@ -659,22 +665,24 @@ function App() {
                 <p>Be the first to leave a review! Share your experience working with Ibtakar Labs.</p>
               </div>
             ) : (
-              <div className="testimonials-grid">
+              <div className="testimonials-grid" role="list" aria-label="Client testimonials and reviews">
                 {reviews.map((review) => (
-                  <div key={review.id} className="testimonial-card">
+                  <article key={review.id} className="testimonial-card" role="listitem" itemScope itemType="https://schema.org/Review">
                     <div className="testimonial-quote">"</div>
-                    <div className="review-rating">
+                    <div className="review-rating" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                      <meta itemProp="ratingValue" content={review.rating} />
+                      <meta itemProp="bestRating" content="5" />
                       {renderStars(review.rating)}
                     </div>
-                    <p className="testimonial-text">{review.text}</p>
-                    <div className="testimonial-author">
+                    <p className="testimonial-text" itemProp="reviewBody">{review.text}</p>
+                    <div className="testimonial-author" itemProp="author" itemScope itemType="https://schema.org/Person">
                       <div className="author-info">
-                        <div className="author-name">{review.name}</div>
-                        <div className="author-role">{review.role}</div>
-                        <div className="author-company">{review.company}</div>
+                        <div className="author-name" itemProp="name">{review.name}</div>
+                        <div className="author-role" itemProp="jobTitle">{review.role}</div>
+                        <div className="author-company" itemProp="worksFor">{review.company}</div>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             )}

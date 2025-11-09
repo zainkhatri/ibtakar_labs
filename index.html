@@ -8,10 +8,19 @@
     <title>Professional Website Development Services | Ibtakar Labs - Custom Websites Starting at $1,200</title>
     <meta name="title" content="Professional Website Development Services | Ibtakar Labs - Custom Websites Starting at $1,200" />
     <meta name="description" content="Expert web development by NASA engineer. Custom React websites, e-commerce solutions, and managed hosting. Fast delivery, 100% satisfaction. Free consultation available." />
-    <meta name="keywords" content="web development, website design, React development, custom websites, e-commerce development, responsive web design, professional website, web developer, website builder, managed hosting, SEO optimization, web application development, California web developer, affordable website development" />
+    <meta name="keywords" content="web development, website design, React development, custom websites, e-commerce development, responsive web design, professional website, web developer, website builder, managed hosting, SEO optimization, web application development, California web developer, affordable website development, NASA engineer web developer, UC Berkeley web developer, custom React websites" />
     <meta name="author" content="Zain Khatri, Ibtakar Labs" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://ibtakarlabs.com/" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="California" />
+    <meta name="theme-color" content="#2563eb" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -19,8 +28,16 @@
     <meta property="og:title" content="Professional Website Development Services | Ibtakar Labs" />
     <meta property="og:description" content="Expert web development by NASA engineer. Custom React websites, e-commerce solutions, and managed hosting. Fast delivery, 100% satisfaction." />
     <meta property="og:image" content="https://ibtakarlabs.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ibtakar Labs - Professional Website Development Services" />
     <meta property="og:site_name" content="Ibtakar Labs" />
     <meta property="og:locale" content="en_US" />
+    <meta property="article:author" content="Zain Khatri" />
+    <meta property="business:contact_data:street_address" content="California" />
+    <meta property="business:contact_data:locality" content="California" />
+    <meta property="business:contact_data:region" content="CA" />
+    <meta property="business:contact_data:country_name" content="United States" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -28,17 +45,35 @@
     <meta property="twitter:title" content="Professional Website Development Services | Ibtakar Labs" />
     <meta property="twitter:description" content="Expert web development by NASA engineer. Custom React websites, e-commerce solutions, and managed hosting." />
     <meta property="twitter:image" content="https://ibtakarlabs.com/og-image.jpg" />
+    <meta property="twitter:image:alt" content="Ibtakar Labs - Professional Website Development Services" />
+    <meta property="twitter:creator" content="@zainkhatri" />
+    <meta property="twitter:site" content="@ibtakarlabs" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/i.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/i.png" />
     <link rel="apple-touch-icon" href="/i.png" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://calendly.com" />
     <link rel="dns-prefetch" href="https://js.stripe.com" />
+    <link rel="dns-prefetch" href="https://firebase.googleapis.com" />
+    <link rel="dns-prefetch" href="https://firebaseapp.com" />
+    <link rel="preload" href="/alt.png" as="image" type="image/png" />
+    <link rel="preload" href="/grad.JPG" as="image" type="image/jpeg" />
+    
+    <!-- Resource Hints for Core Web Vitals -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Critical CSS Preload -->
+    <link rel="preload" href="/src/App.css" as="style" />
+    <link rel="preload" href="/src/index.css" as="style" />
 
     <!-- Structured Data for SEO (JSON-LD) -->
     <script type="application/ld+json">
@@ -92,6 +127,26 @@
         "bestRating": "5",
         "worstRating": "4.5"
       },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Website Development",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom Website Development",
+                  "description": "Professional custom website development services"
+                }
+              }
+            ]
+          }
+        ]
+      },
       "offers": [
         {
           "@type": "Offer",
@@ -121,6 +176,82 @@
           "price": "50",
           "priceCurrency": "USD",
           "billingDuration": "P1M"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Additional Structured Data - FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a professional website cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our professional website development services start at $1,200 for a starter website with 3 pages, mobile responsive design, and SEO optimization. Pro websites are $2,400 and Premium websites start at $4,000 with advanced features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Starter websites take 1 week, Pro websites take 2 weeks, and Premium websites take 3-4 weeks to complete. This includes design, development, testing, and deployment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide website hosting and maintenance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer managed web hosting for $50/month which includes SSL certificates, domain renewal, security updates, content updates, technical support, and performance monitoring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies do you use for web development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We specialize in modern React development, responsive design, and performance optimization. All websites are mobile-first, SEO optimized, and built with the latest web standards."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ibtakarlabs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://ibtakarlabs.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Portfolio",
+          "item": "https://ibtakarlabs.com/#portfolio"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contact",
+          "item": "https://ibtakarlabs.com/#contact"
         }
       ]
     }

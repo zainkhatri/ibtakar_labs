@@ -8,15 +8,25 @@
   <!-- Homepage -->
   <url>
     <loc>https://ibtakarlabs.com/</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ibtakarlabs.com/alt.png</image:loc>
+      <image:title>Ibtakar Labs Logo</image:title>
+      <image:caption>Professional Website Development Services by Ibtakar Labs</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ibtakarlabs.com/grad.JPG</image:loc>
+      <image:title>Zain Khatri - NASA Engineer and Web Developer</image:title>
+      <image:caption>Founder of Ibtakar Labs, NASA Engineer, UC Berkeley and UC San Diego Graduate</image:caption>
+    </image:image>
   </url>
 
   <!-- Services Section -->
   <url>
     <loc>https://ibtakarlabs.com/#services</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -24,15 +34,30 @@
   <!-- About/Founder Section -->
   <url>
     <loc>https://ibtakarlabs.com/#founder</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://ibtakarlabs.com/nasa.png</image:loc>
+      <image:title>NASA Logo</image:title>
+      <image:caption>NASA - National Aeronautics and Space Administration</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ibtakarlabs.com/logo-ucberkeley.png</image:loc>
+      <image:title>UC Berkeley Logo</image:title>
+      <image:caption>University of California Berkeley</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ibtakarlabs.com/ucsd.png</image:loc>
+      <image:title>UC San Diego Logo</image:title>
+      <image:caption>University of California San Diego</image:caption>
+    </image:image>
   </url>
 
   <!-- Portfolio Section -->
   <url>
     <loc>https://ibtakarlabs.com/#portfolio</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -40,7 +65,7 @@
   <!-- Testimonials Section -->
   <url>
     <loc>https://ibtakarlabs.com/#testimonials</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -48,9 +73,45 @@
   <!-- Contact Section -->
   <url>
     <loc>https://ibtakarlabs.com/#contact</loc>
-    <lastmod>2025-01-08</lastmod>
+    <lastmod>2025-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Portfolio Projects (External Links for Reference) -->
+  <url>
+    <loc>https://meetyourmaker.vercel.app</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://bholatskitchen.com</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://mtcucsd.org</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://tsharifi.com</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://zainkhatri.com</loc>
+    <lastmod>2025-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

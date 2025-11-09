@@ -1,0 +1,29 @@
+{
+  "name": "Ibtakar Labs - Professional Website Development Services",
+  "short_name": "Ibtakar Labs",
+  "description": "Expert web development by NASA engineer. Custom React websites, e-commerce solutions, and managed hosting.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/i.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/i.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "ibtakar-labs-web-dev"
+}
