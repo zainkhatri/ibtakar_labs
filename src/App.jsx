@@ -460,13 +460,10 @@ function App() {
       <section className="founder" id="founder" aria-labelledby="founder-heading">
         <div className="container">
           <h2 id="founder-heading" className="section-title">Meet the Founder</h2>
-          <p className="section-subtitle">
-            Zain Khatri - Building digital experiences with NASA-level precision and expertise. UC Berkeley & UC San Diego graduate.
-          </p>
 
           <div className="founder-content" itemScope itemType="https://schema.org/Person">
             <div className="founder-image">
-              <img src="/grad.JPG" alt="Zain Khatri - NASA Engineer and Professional Web Developer" itemProp="image" />
+              <img src="/founder.jpeg" alt="Zain Khatri - NASA Engineer and Professional Web Developer" itemProp="image" />
             </div>
             <div className="founder-info">
               <h3 className="founder-name" itemProp="name">Zain Khatri</h3>
