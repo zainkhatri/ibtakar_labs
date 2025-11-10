@@ -681,6 +681,13 @@ function App() {
                 {reviews.map((review) => (
                   <article key={review.id} className="testimonial-card" role="listitem" itemScope itemType="https://schema.org/Review">
                     <div className="testimonial-quote">"</div>
+
+                    {/* Item being reviewed - Ibtakar Labs service */}
+                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Service">
+                      <meta itemProp="name" content="Ibtakar Labs Website Development Services" />
+                      <meta itemProp="description" content="Professional website development and design services" />
+                    </div>
+
                     <div className="review-rating" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
                       <meta itemProp="ratingValue" content={review.rating} />
                       <meta itemProp="bestRating" content="5" />
