@@ -1,81 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Homepage -->
+  <!-- Homepage with all sections -->
   <url>
     <loc>https://ibtakarlabs.com/</loc>
-    <lastmod>2025-01-09</lastmod>
+    <lastmod>2025-01-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+
+    <!-- Logo -->
     <image:image>
       <image:loc>https://ibtakarlabs.com/alt.png</image:loc>
       <image:title>Ibtakar Labs Logo</image:title>
       <image:caption>Professional Website Development Services by Ibtakar Labs</image:caption>
     </image:image>
+
+    <!-- Founder Photo -->
     <image:image>
       <image:loc>https://ibtakarlabs.com/founder.jpeg</image:loc>
       <image:title>Zain Khatri - NASA Engineer and Web Developer</image:title>
       <image:caption>Founder of Ibtakar Labs, NASA Engineer, UC Berkeley and UC San Diego Graduate</image:caption>
     </image:image>
-  </url>
 
-  <!-- Services Section -->
-  <url>
-    <loc>https://ibtakarlabs.com/#services</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- About/Founder Section -->
-  <url>
-    <loc>https://ibtakarlabs.com/#founder</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <!-- Company Logos -->
     <image:image>
       <image:loc>https://ibtakarlabs.com/nasa.png</image:loc>
       <image:title>NASA Logo</image:title>
       <image:caption>NASA - National Aeronautics and Space Administration</image:caption>
     </image:image>
+
     <image:image>
       <image:loc>https://ibtakarlabs.com/logo-ucberkeley.png</image:loc>
       <image:title>UC Berkeley Logo</image:title>
       <image:caption>University of California Berkeley</image:caption>
     </image:image>
+
     <image:image>
       <image:loc>https://ibtakarlabs.com/ucsd.png</image:loc>
       <image:title>UC San Diego Logo</image:title>
       <image:caption>University of California San Diego</image:caption>
     </image:image>
-  </url>
-
-  <!-- Portfolio Section -->
-  <url>
-    <loc>https://ibtakarlabs.com/#portfolio</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Testimonials Section -->
-  <url>
-    <loc>https://ibtakarlabs.com/#testimonials</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Contact Section -->
-  <url>
-    <loc>https://ibtakarlabs.com/#contact</loc>
-    <lastmod>2025-01-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
 </urlset>
