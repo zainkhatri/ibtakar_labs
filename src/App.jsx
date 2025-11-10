@@ -117,78 +117,85 @@ function App() {
       name: "Interactive App",
       url: "https://meetyourmaker.vercel.app",
       description: "Interactive web application with dynamic features",
-      category: "Web App"
+      category: "Web App",
+      tier: "Premium"
     },
     {
       name: "Restaurant Website",
       url: "https://bholatskitchen.com",
       description: "Full-featured restaurant website with ordering",
-      category: "E-commerce"
+      category: "E-commerce",
+      tier: "Pro"
     },
     {
       name: "Organization Site",
       url: "https://mtcucsd.org",
       description: "Professional organization platform",
-      category: "Organization"
+      category: "Organization",
+      tier: "Starter"
     },
     {
       name: "Professional Portfolio",
       url: "https://tsharifi.com",
       description: "Elegant professional portfolio",
-      category: "Portfolio"
+      category: "Portfolio",
+      tier: "Starter"
     },
     {
       name: "Portfolio Site",
       url: "https://zainkhatri.com",
       description: "Personal portfolio showcasing web development mastery",
-      category: "Portfolio"
+      category: "Portfolio",
+      tier: "Premium"
     }
   ];
 
   const services = [
     {
       name: "Starter Website",
-      price: "$1,200",
+      price: "$999",
       delivery: "1 week",
       stripeType: "starter",
+      description: "Perfect for small businesses establishing an online presence.",
       features: [
-        "3 simple pages",
-        "Basic template design",
-        "Mobile responsive",
+        "3 pages (Home, About, Contact)",
+        "Mobile-friendly design",
         "Contact form",
-        "SEO optimization"
+        "Basic SEO setup",
+        "Fast loading speed"
       ]
     },
     {
       name: "Pro Website",
-      price: "$2,400",
+      price: "$1,999",
       delivery: "2 weeks",
       stripeType: "pro",
+      description: "For growing businesses ready to make an impact.",
       features: [
-        "Custom visual design & branding",
-        "Up to 5 dynamic pages",
-        "Advanced React animations",
-        "E-commerce/booking system",
-        "Content management dashboard",
-        "Advanced SEO & analytics",
-        "Performance optimization",
-        "Google Analytics integration"
+        "Up to 7 custom pages",
+        "Unique brand design",
+        "Smooth animations",
+        "Booking OR store (20 products)",
+        "Blog with easy updates",
+        "Google Analytics",
+        "Advanced SEO"
       ],
       popular: true
     },
     {
       name: "Premium Website",
-      price: "$4,000+",
+      price: "$3,999+",
       delivery: "3-4 weeks",
       stripeType: "premium",
+      description: "Enterprise solution for ambitious businesses.",
       features: [
         "Everything in Pro +",
-        "Custom database & API",
-        "Email automation & marketing",
-        "Social media integration",
-        "Payment gateway integration",
-        "Multi-language support",
-        "Advanced integrations"
+        "Unlimited pages",
+        "User accounts & login",
+        "Custom database",
+        "API & integrations",
+        "Email automation",
+        "Payment processing"
       ]
     }
   ];
@@ -404,7 +411,7 @@ function App() {
         <div className="container">
           <h2 id="services-heading" className="section-title">Web Development Services & Pricing</h2>
           <p className="section-subtitle">
-            Affordable professional website packages starting at $1,200. All packages include responsive design, SEO optimization, and mobile-first development. Managed hosting available for $50/month.
+            Choose the perfect website package for your business. All packages include mobile-responsive design, fast loading speeds, and SEO optimization. Transparent pricing with no hidden fees.
           </p>
 
           <div className="services-grid" role="list" aria-label="Website development service packages">
@@ -422,6 +429,9 @@ function App() {
                   <span itemProp="price">{service.price}</span>
                 </div>
                 <div className="service-delivery">Delivery: {service.delivery}</div>
+                {service.description && (
+                  <p className="service-description">{service.description}</p>
+                )}
                 <ul className="service-features" itemProp="description">
                   {service.features.map((feature, i) => (
                     <li key={i}>{feature}</li>
@@ -544,7 +554,12 @@ function App() {
                   ))}
                 </div>
                 <div className="viewer-info">
-                  <p className="viewer-description">{portfolioItems[activeProject].description}</p>
+                  <div className="viewer-info-row">
+                    <p className="viewer-description">{portfolioItems[activeProject].description}</p>
+                    <span className={`portfolio-tier-badge tier-${portfolioItems[activeProject].tier.toLowerCase()}`}>
+                      {portfolioItems[activeProject].tier} Tier
+                    </span>
+                  </div>
                   <a
                     href={portfolioItems[activeProject].url}
                     target="_blank"
