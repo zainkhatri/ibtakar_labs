@@ -35,15 +35,15 @@ export default async function handler(req, res) {
     // Service pricing and details - using actual Stripe product IDs
     const services = {
       starter: {
-        priceId: 'price_1SRK882MvdGcw5oapmDRabcu', // $999.99 Starter Website
+        priceId: 'price_1SRK882MvdGcw5oapmDRabcu', // $999 Starter Website
         mode: 'payment'
       },
       pro: {
-        priceId: 'price_1SRK7k2MvdGcw5oaQ6pkkfJV', // $1,999.99 Pro Website
+        priceId: 'price_1SRK7k2MvdGcw5oaQ6pkkfJV', // $1,999 Pro Website
         mode: 'payment'
       },
       premium: {
-        priceId: 'price_1SRK7H2MvdGcw5oaAjwaYO6Y', // $3,999.99 Premium Website
+        priceId: 'price_1SRK7H2MvdGcw5oaAjwaYO6Y', // $3,999 Premium Website
         mode: 'payment'
       },
       managed: {
