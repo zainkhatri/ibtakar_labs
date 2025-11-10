@@ -153,7 +153,7 @@ function App() {
   const services = [
     {
       name: "Starter Website",
-      price: "$999",
+      price: "$999.99",
       delivery: "1 week",
       stripeType: "starter",
       description: "Perfect for small businesses establishing an online presence.",
@@ -167,7 +167,7 @@ function App() {
     },
     {
       name: "Pro Website",
-      price: "$1,999",
+      price: "$1,999.99",
       delivery: "2 weeks",
       stripeType: "pro",
       description: "For growing businesses ready to make an impact.",
@@ -184,7 +184,7 @@ function App() {
     },
     {
       name: "Premium Website",
-      price: "$3,999+",
+      price: "$3,999.99+"
       delivery: "3-4 weeks",
       stripeType: "premium",
       description: "Enterprise solution for ambitious businesses.",
@@ -701,6 +701,12 @@ function App() {
                         <div className="author-company" itemProp="worksFor">{review.company}</div>
                       </div>
                     </div>
+                    {review.date && (
+                      <div className="review-date">
+                        <meta itemProp="datePublished" content={review.createdAt} />
+                        {review.date}
+                      </div>
+                    )}
                   </article>
                 ))}
               </div>

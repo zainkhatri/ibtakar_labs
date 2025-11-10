@@ -1576,6 +1576,16 @@ section {
   letter-spacing: 0.1em;
 }
 
+.review-date {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-light);
+  font-size: 0.65rem;
+  text-align: right;
+  font-style: italic;
+}
+
 /* ===== CONTACT SECTION ===== */
 .contact {
   background: var(--primary);
