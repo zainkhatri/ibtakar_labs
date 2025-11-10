@@ -184,7 +184,7 @@ function App() {
     },
     {
       name: "Premium Website",
-      price: "$3,999.99+"
+      price: "$3,999.99+",
       delivery: "3-4 weeks",
       stripeType: "premium",
       description: "Enterprise solution for ambitious businesses.",

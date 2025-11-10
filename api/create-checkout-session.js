@@ -32,24 +32,18 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Stripe configuration error' });
     }
 
-    // Service pricing and details
+    // Service pricing and details - using actual Stripe product IDs
     const services = {
       starter: {
-        name: 'Starter Website',
-        price: 120000, // $1,200 in cents
-        description: '3 simple pages, basic template design, mobile responsive, contact form, SEO optimization',
+        priceId: 'price_1SRK882MvdGcw5oapmDRabcu', // $999.99 Starter Website
         mode: 'payment'
       },
       pro: {
-        name: 'Pro Website',
-        price: 240000, // $2,400 in cents
-        description: 'Custom visual design & branding, up to 5 dynamic pages, advanced React animations, e-commerce/booking system, content management dashboard, advanced SEO & analytics, performance optimization, Google Analytics integration',
+        priceId: 'price_1SRK7k2MvdGcw5oaQ6pkkfJV', // $1,999.99 Pro Website
         mode: 'payment'
       },
       premium: {
-        name: 'Premium Website',
-        price: 400000, // $4,000 in cents
-        description: 'Everything in Pro + custom database & API, email automation & marketing, social media integration, payment gateway integration, multi-language support, advanced integrations',
+        priceId: 'price_1SRK7H2MvdGcw5oaAjwaYO6Y', // $3,999.99 Premium Website
         mode: 'payment'
       },
       managed: {
@@ -69,19 +63,9 @@ export default async function handler(req, res) {
     console.log('Creating Stripe checkout session...');
 
     // Build line items based on service type
-    const lineItems = service.mode === 'subscription' ? [
+    const lineItems = service.priceId ? [
       {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: service.name,
-            description: service.description,
-          },
-          unit_amount: service.price,
-          recurring: {
-            interval: service.recurring,
-          },
-        },
+        price: service.priceId,
         quantity: 1,
       },
     ] : [
@@ -93,6 +77,9 @@ export default async function handler(req, res) {
             description: service.description,
           },
           unit_amount: service.price,
+          recurring: service.recurring ? {
+            interval: service.recurring,
+          } : undefined,
         },
         quantity: 1,
       },
