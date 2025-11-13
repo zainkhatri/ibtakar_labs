@@ -710,10 +710,16 @@ function App() {
                   <article key={review.id} className="testimonial-card" role="listitem" itemScope itemType="https://schema.org/Review">
                     <div className="testimonial-quote">"</div>
 
-                    {/* Item being reviewed - Ibtakar Labs service */}
-                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Service">
-                      <meta itemProp="name" content="Ibtakar Labs Website Development Services" />
-                      <meta itemProp="description" content="Professional website development and design services" />
+                    {/* Item being reviewed - Ibtakar Labs as LocalBusiness */}
+                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
+                      <meta itemProp="name" content="Ibtakar Labs" />
+                      <meta itemProp="description" content="Professional Website Development Services" />
+                      <meta itemProp="url" content="https://ibtakarlabs.com" />
+                      <meta itemProp="image" content="https://ibtakarlabs.com/alt.png" />
+                      <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                        <meta itemProp="addressRegion" content="CA" />
+                        <meta itemProp="addressCountry" content="US" />
+                      </div>
                     </div>
 
                     <div className="review-rating" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
