@@ -42,7 +42,6 @@ function App() {
     rating: 5
   });
   const [checkoutLoading, setCheckoutLoading] = useState(null);
-  const [easterEggClicks, setEasterEggClicks] = useState(0);
 
   // Profanity filter - basic word list (you can expand this)
   const profanityList = [
@@ -57,19 +56,6 @@ function App() {
       const regex = new RegExp(`\\b${word}\\b`, 'i');
       return regex.test(lowerText);
     });
-  };
-
-  // Easter egg: Click "u" in "Founder" 5 times to buy $1 test product
-  const handleEasterEggClick = async () => {
-    const newCount = easterEggClicks + 1;
-    setEasterEggClicks(newCount);
-
-    if (newCount === 5) {
-      // Trigger checkout for $1 test product
-      await createCheckoutSession('test');
-      // Reset counter
-      setEasterEggClicks(0);
-    }
   };
 
   useEffect(() => {
@@ -485,19 +471,7 @@ function App() {
       {/* Meet the Founder Section */}
       <section className="founder" id="founder" aria-labelledby="founder-heading">
         <div className="container">
-          <h2 id="founder-heading" className="section-title">
-            Meet the Fo
-            <span
-              onClick={handleEasterEggClick}
-              style={{
-                cursor: 'default',
-                userSelect: 'none'
-              }}
-            >
-              u
-            </span>
-            nder
-          </h2>
+          <h2 id="founder-heading" className="section-title">Meet the Founder</h2>
 
           <div className="founder-content" itemScope itemType="https://schema.org/Person">
             <div className="founder-image">
