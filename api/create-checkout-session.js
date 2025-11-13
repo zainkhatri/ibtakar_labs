@@ -124,9 +124,8 @@ export default async function handler(req, res) {
       // Allow promotion codes (you can create these in Stripe Dashboard)
       allow_promotion_codes: true,
 
-      // Automatically send receipt emails
+      // Automatically send receipt emails - let Stripe handle it automatically
       payment_intent_data: service.mode === 'payment' ? {
-        receipt_email: null, // Will use customer email from checkout form
         metadata: {
           service_type: serviceType,
           service_name: service.name,
