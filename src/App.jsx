@@ -774,6 +774,13 @@ function App() {
             {' • '}
             <a href="https://calendly.com/zainnkhatri/30min" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}>Schedule Meeting</a>
           </p>
+          <p style={{ marginTop: '10px' }}>
+            <a href="https://www.linkedin.com/company/ibtakar-labs/about/" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://www.linkedin.com/company/ibtakar-labs/about/')}>LinkedIn</a>
+            {' • '}
+            <a href="https://www.instagram.com/ibtakarlabs/" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://www.instagram.com/ibtakarlabs/')}>Instagram</a>
+            {' • '}
+            <a href="https://github.com/zkhatri1" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://github.com/zkhatri1')}>GitHub</a>
+          </p>
         </div>
       </footer>
     </div>

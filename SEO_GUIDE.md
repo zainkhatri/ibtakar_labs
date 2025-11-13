@@ -68,11 +68,11 @@ Create profiles on these platforms (all link back to ibtakarlabs.com):
 
 #### 5. **Social Media Presence**
 Create accounts and link to your site:
-- [ ] LinkedIn (personal + company page)
+- [x] LinkedIn (personal + company page) - https://www.linkedin.com/company/ibtakar-labs/about/
 - [ ] Twitter/X (@ibtakarlabs)
-- [ ] Instagram
+- [x] Instagram - https://www.instagram.com/ibtakarlabs/
 - [ ] Facebook Business Page
-- [ ] GitHub (showcase your code)
+- [x] GitHub (showcase your code) - https://github.com/zkhatri1
 
 ### Content Strategy (Ongoing):
 
