@@ -104,7 +104,8 @@ export default async function handler(req, res) {
       phone_number_collection: {
         enabled: true,
       },
-      customer_creation: 'always',
+      // Only create customer for payment mode, subscriptions auto-create customers
+      customer_creation: service.mode === 'payment' ? 'always' : undefined,
 
       // Custom branding (configure in Stripe Dashboard: Settings > Branding)
       // This will show your logo and brand colors on the checkout page
