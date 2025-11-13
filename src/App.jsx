@@ -59,14 +59,14 @@ function App() {
     });
   };
 
-  // Easter egg: Click "u" in "Founder" 5 times to access Stripe product
-  const handleEasterEggClick = () => {
+  // Easter egg: Click "u" in "Founder" 5 times to buy $1 test product
+  const handleEasterEggClick = async () => {
     const newCount = easterEggClicks + 1;
     setEasterEggClicks(newCount);
 
     if (newCount === 5) {
-      // Open Stripe product page after 5 clicks
-      window.open('https://dashboard.stripe.com/products/prod_TPfACBt8odBa2U', '_blank');
+      // Trigger checkout for $1 test product
+      await createCheckoutSession('test');
       // Reset counter
       setEasterEggClicks(0);
     }
