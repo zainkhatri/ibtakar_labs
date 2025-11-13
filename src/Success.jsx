@@ -16,13 +16,30 @@ const handleLinkClick = (e, url) => {
   // On desktop, let the default behavior (target="_blank") work
 };
 
+// Service names mapping
+const serviceNames = {
+  starter: 'Starter Website Package',
+  pro: 'Pro Website Package',
+  premium: 'Premium Website Package',
+  managed: 'Managed Web Plan (Monthly)',
+  test: 'Test Payment ($1/month)'
+};
+
 function Success() {
   const [sessionId, setSessionId] = useState(null);
+  const [serviceName, setServiceName] = useState('Website Package');
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionId = urlParams.get('session_id');
     setSessionId(sessionId);
+
+    // Try to get service type from referrer or session storage
+    const serviceType = sessionStorage.getItem('checkout_service_type');
+    if (serviceType && serviceNames[serviceType]) {
+      setServiceName(serviceNames[serviceType]);
+      sessionStorage.removeItem('checkout_service_type'); // Clean up
+    }
   }, []);
 
   return (
@@ -35,6 +52,15 @@ function Success() {
             <p className="success-message">
               Thank you for choosing Ibtakar Labs! Your payment has been processed successfully.
             </p>
+
+            <div className="order-summary">
+              <h3>Order Summary</h3>
+              <p><strong>Service:</strong> {serviceName}</p>
+              <p><strong>Status:</strong> <span className="status-confirmed">Confirmed</span></p>
+              {sessionId && (
+                <p><small>Confirmation ID: {sessionId.substring(0, 20)}...</small></p>
+              )}
+            </div>
             
             <div className="success-details">
               <h3>What happens next?</h3>
@@ -73,12 +99,6 @@ function Success() {
                 ← Return to Homepage
               </a>
             </div>
-
-            {sessionId && (
-              <div className="session-info">
-                <small>Session ID: {sessionId}</small>
-              </div>
-            )}
           </div>
         </div>
       </div>

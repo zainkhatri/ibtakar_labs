@@ -50,10 +50,32 @@
     <meta property="twitter:creator" content="@zainkhatri" />
     <meta property="twitter:site" content="@ibtakarlabs" />
 
+    <!-- Additional Brand Signals -->
+    <meta property="og:brand" content="Ibtakar Labs" />
+    <meta name="apple-mobile-web-app-title" content="Ibtakar Labs">
+    <meta name="application-name" content="Ibtakar Labs">
+    <meta name="organization" content="Ibtakar Labs">
+    <meta name="coverage" content="Worldwide">
+    <meta name="target" content="Small businesses, entrepreneurs, startups">
+    <meta name="classification" content="Web Development, Web Design, E-commerce">
+    <meta name="designer" content="Ibtakar Labs - Zain Khatri">
+    <meta name="owner" content="Zain Khatri">
+    <meta name="reply-to" content="contact@ibtakarlabs.com">
+    <meta name="url" content="https://ibtakarlabs.com">
+    <meta name="identifier-URL" content="https://ibtakarlabs.com">
+
+    <!-- Business Information -->
+    <meta property="business:contact_data:website" content="https://ibtakarlabs.com" />
+    <meta property="business:contact_data:email" content="contact@ibtakarlabs.com" />
+    <meta name="company" content="Ibtakar Labs" />
+    <meta name="founder" content="Zain Khatri - NASA Engineer" />
+
     <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/i.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/i.png" />
     <link rel="apple-touch-icon" href="/i.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     
     <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.json" />
@@ -82,11 +104,22 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Ibtakar Labs",
-      "alternateName": "Ibtakarlabs",
+      "legalName": "Ibtakar Labs",
+      "alternateName": ["Ibtakarlabs", "Ibtakar Web Development", "Ibtakar Labs Agency"],
       "url": "https://ibtakarlabs.com",
       "logo": "https://ibtakarlabs.com/alt.png",
       "image": "https://ibtakarlabs.com/og-image.jpg",
-      "description": "Ibtakar Labs builds fast, modern websites for small businesses with React, SEO, and managed hosting. Founded by NASA engineer Zain Khatri.",
+      "description": "Ibtakar Labs builds fast, modern websites for small businesses with React, SEO, and managed hosting. Founded by NASA engineer Zain Khatri. Professional web development services starting at $1,200.",
+      "slogan": "Professional Website Development by NASA Engineer",
+      "foundingDate": "2024",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
       "founder": {
         "@type": "Person",
         "name": "Zain Khatri",
@@ -100,28 +133,66 @@
         "alumniOf": [
           {
             "@type": "Organization",
-            "name": "UC Berkeley"
+            "name": "University of California, Berkeley",
+            "sameAs": "https://www.berkeley.edu"
           },
           {
             "@type": "Organization",
-            "name": "UC San Diego"
+            "name": "University of California, San Diego",
+            "sameAs": "https://www.ucsd.edu"
           }
-        ]
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "NASA",
+          "sameAs": "https://www.nasa.gov"
+        }
       },
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "San Francisco Bay Area",
         "addressRegion": "CA",
         "addressCountry": "US"
       },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "State",
+          "name": "California"
+        }
+      ],
+      "email": "contact@ibtakarlabs.com",
       "sameAs": [
         "https://zainkhatri.com",
         "https://github.com/zkhatri1",
-        "https://calendly.com/zainnkhatri"
+        "https://calendly.com/zainnkhatri",
+        "https://linkedin.com/company/ibtakar-labs",
+        "https://twitter.com/ibtakarlabs"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Customer Service",
-        "availableLanguage": ["en"]
+        "availableLanguage": ["en", "English"],
+        "areaServed": "US"
+      },
+      "knowsAbout": [
+        "Web Development",
+        "React Development",
+        "E-commerce Development",
+        "Website Design",
+        "SEO Optimization",
+        "Managed Hosting",
+        "Custom Web Applications",
+        "Responsive Design"
+      ],
+      "award": "NASA Engineer",
+      "brand": {
+        "@type": "Brand",
+        "name": "Ibtakar Labs",
+        "logo": "https://ibtakarlabs.com/alt.png"
       }
     }
     </script>

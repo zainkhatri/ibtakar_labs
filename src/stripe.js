@@ -30,6 +30,11 @@ export const stripeServices = {
     name: "Managed Web Plan",
     price: "$50/month",
     description: "Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support"
+  },
+  test: {
+    name: "Test Payment",
+    price: "$1/month",
+    description: "⚠️ FOR TESTING ONLY - Test the payment flow with a real $1 charge. You can cancel anytime from Stripe dashboard."
   }
 };
 
@@ -43,7 +48,10 @@ export const createCheckoutSession = async (serviceType) => {
 
   try {
     console.log('Attempting to create Stripe checkout session for:', serviceType);
-    
+
+    // Store service type for success page
+    sessionStorage.setItem('checkout_service_type', serviceType);
+
     // Try to call our backend API first
     const response = await fetch('/api/create-checkout-session', {
       method: 'POST',

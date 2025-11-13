@@ -35,14 +35,17 @@ export default async function handler(req, res) {
     // Service pricing and details - using actual Stripe product IDs
     const services = {
       starter: {
+        name: 'Starter Website',
         priceId: 'price_1SRK882MvdGcw5oapmDRabcu', // $999 Starter Website
         mode: 'payment'
       },
       pro: {
+        name: 'Pro Website',
         priceId: 'price_1SRK7k2MvdGcw5oaQ6pkkfJV', // $1,999 Pro Website
         mode: 'payment'
       },
       premium: {
+        name: 'Premium Website',
         priceId: 'price_1SRK7H2MvdGcw5oaAjwaYO6Y', // $3,999 Premium Website
         mode: 'payment'
       },
@@ -52,6 +55,11 @@ export default async function handler(req, res) {
         description: 'Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support',
         mode: 'subscription',
         recurring: 'month'
+      },
+      test: {
+        name: 'Test Payment ($1)',
+        priceId: 'price_1SSpq32MvdGcw5oaJxAjESrg', // $1 Test subscription
+        mode: 'subscription'
       }
     };
 
@@ -92,10 +100,46 @@ export default async function handler(req, res) {
       mode: service.mode,
       success_url: `${req.headers.origin || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.origin || 'http://localhost:3000'}/#services`,
+
+      // Professional branding and customization
+      billing_address_collection: 'auto',
+      phone_number_collection: {
+        enabled: true,
+      },
+      customer_creation: 'always',
+
+      // Custom branding (configure in Stripe Dashboard: Settings > Branding)
+      // This will show your logo and brand colors on the checkout page
+
+      // Collect customer email for receipts
+      submit_type: service.mode === 'subscription' ? 'subscribe' : 'pay',
+
+      // Add metadata for tracking
       metadata: {
         service_type: serviceType,
-        website: 'ibtakar-labs'
+        website: 'ibtakar-labs',
+        business_name: 'Ibtakar Labs',
       },
+
+      // Allow promotion codes (you can create these in Stripe Dashboard)
+      allow_promotion_codes: true,
+
+      // Automatically send receipt emails
+      payment_intent_data: service.mode === 'payment' ? {
+        receipt_email: null, // Will use customer email from checkout form
+        metadata: {
+          service_type: serviceType,
+          service_name: service.name,
+        },
+      } : undefined,
+
+      // For subscriptions
+      subscription_data: service.mode === 'subscription' ? {
+        metadata: {
+          service_type: serviceType,
+          service_name: service.name,
+        },
+      } : undefined,
     });
 
     console.log('Stripe session created successfully:', session.id);
