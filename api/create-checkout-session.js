@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       },
       managed: {
         name: 'Managed Web Plan',
-        priceId: 'price_1SSpq32MvdGcw5oaJxAjESrg', // Temporarily use same as test - YOU NEED TO CREATE A $50/mo PRODUCT IN STRIPE
+        priceId: 'price_1SRK8z2MvdGcw5oaNDOWT7Q8', // $50/month Managed Web Plan
         mode: 'subscription'
       },
       test: {
