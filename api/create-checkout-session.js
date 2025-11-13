@@ -51,10 +51,8 @@ export default async function handler(req, res) {
       },
       managed: {
         name: 'Managed Web Plan',
-        price: 5000, // $50 in cents
-        description: 'Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support',
-        mode: 'subscription',
-        recurring: 'month'
+        priceId: 'price_1SSpq32MvdGcw5oaJxAjESrg', // Temporarily use same as test - YOU NEED TO CREATE A $50/mo PRODUCT IN STRIPE
+        mode: 'subscription'
       },
       test: {
         name: 'Test Payment ($1)',
