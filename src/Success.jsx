@@ -45,33 +45,33 @@ function Success() {
   return (
     <div className="app" style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       padding: '2rem 1rem'
     }}>
       <div className="container" style={{ maxWidth: '800px' }}>
-        {/* Success Card */}
         <div style={{
           background: 'white',
           borderRadius: '20px',
-          padding: '3rem',
+          padding: '3rem 2rem',
           boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
-          textAlign: 'center',
-          marginBottom: '2rem'
+          textAlign: 'center'
         }}>
           {/* Success Icon */}
           <div style={{
             width: '80px',
             height: '80px',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
             borderRadius: '50%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 2rem',
-            fontSize: '40px'
+            fontSize: '40px',
+            color: 'white',
+            fontWeight: 'bold'
           }}>
             ✓
           </div>
@@ -80,7 +80,7 @@ function Success() {
             fontSize: 'clamp(2rem, 5vw, 3rem)',
             fontWeight: '700',
             marginBottom: '1rem',
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
@@ -97,9 +97,9 @@ function Success() {
             Thank you for choosing Ibtakar Labs! Your payment has been processed successfully.
           </p>
 
-          {/* Order Summary Card */}
+          {/* Order Summary */}
           <div style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
             borderRadius: '15px',
             padding: '2rem',
             marginBottom: '2.5rem',
@@ -120,7 +120,7 @@ function Success() {
               gap: '1rem',
               fontSize: '1rem'
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
                 <span style={{ opacity: 0.9 }}>Service:</span>
                 <strong style={{ textAlign: 'right' }}>{serviceName}</strong>
               </div>
@@ -134,7 +134,7 @@ function Success() {
                   fontWeight: '600',
                   fontSize: '0.9rem'
                 }}>
-                  ✓ Confirmed
+                  Confirmed
                 </div>
               </div>
 
@@ -148,13 +148,13 @@ function Success() {
                   opacity: 0.8,
                   wordBreak: 'break-all'
                 }}>
-                  Confirmation ID: {sessionId.substring(0, 25)}...
+                  Confirmation ID: {sessionId.substring(0, 30)}...
                 </div>
               )}
             </div>
           </div>
 
-          {/* What's Next Section */}
+          {/* What's Next */}
           <div style={{
             textAlign: 'left',
             marginBottom: '2.5rem'
@@ -170,36 +170,27 @@ function Success() {
 
             <div style={{
               display: 'grid',
-              gap: '1rem'
+              gap: '0.75rem'
             }}>
               {[
-                { icon: '📧', text: "You'll receive a confirmation email within 5 minutes" },
-                { icon: '📞', text: "I'll contact you within 24 hours to discuss your project" },
-                { icon: '📅', text: "We'll schedule a kick-off call to get started" },
-                { icon: '🚀', text: "Your website development will begin immediately" }
-              ].map((item, index) => (
+                "You'll receive a confirmation email within 5 minutes",
+                "I'll contact you within 24 hours to discuss your project",
+                "We'll schedule a kick-off call to get started",
+                "Your website development will begin immediately"
+              ].map((text, index) => (
                 <div key={index} style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '1rem',
-                  padding: '1rem',
-                  background: '#f8fafc',
+                  padding: '1rem 1.25rem',
+                  background: '#f1f5f9',
                   borderRadius: '10px',
-                  transition: 'transform 0.2s',
+                  borderLeft: '4px solid #2563eb'
                 }}>
-                  <div style={{
-                    fontSize: '1.5rem',
-                    minWidth: '30px'
-                  }}>
-                    {item.icon}
-                  </div>
                   <p style={{
                     margin: 0,
                     color: '#475569',
                     fontSize: '1rem',
                     lineHeight: '1.6'
                   }}>
-                    {item.text}
+                    {text}
                   </p>
                 </div>
               ))}
@@ -216,11 +207,12 @@ function Success() {
           }}>
             <a
               href="mailto:zainnkhatri@gmail.com"
+              className="btn btn-primary"
               style={{
                 flex: '1',
                 minWidth: '200px',
                 padding: '1rem 2rem',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
                 color: 'white',
                 textDecoration: 'none',
                 borderRadius: '10px',
@@ -228,18 +220,11 @@ function Success() {
                 fontSize: '1rem',
                 transition: 'transform 0.2s, box-shadow 0.2s',
                 display: 'inline-block',
-                textAlign: 'center'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 10px 25px rgba(102, 126, 234, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)';
-                e.target.style.boxShadow = 'none';
+                textAlign: 'center',
+                border: 'none'
               }}
             >
-              📧 Email Me
+              Email Me
             </a>
 
             <a
@@ -247,37 +232,28 @@ function Success() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
+              className="btn btn-outline"
               style={{
                 flex: '1',
                 minWidth: '200px',
                 padding: '1rem 2rem',
                 background: 'white',
-                color: '#667eea',
+                color: '#2563eb',
                 textDecoration: 'none',
                 borderRadius: '10px',
                 fontWeight: '600',
                 fontSize: '1rem',
-                border: '2px solid #667eea',
+                border: '2px solid #2563eb',
                 transition: 'all 0.2s',
                 display: 'inline-block',
                 textAlign: 'center'
               }}
-              onMouseEnter={(e) => {
-                e.target.style.background = '#667eea';
-                e.target.style.color = 'white';
-                e.target.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = 'white';
-                e.target.style.color = '#667eea';
-                e.target.style.transform = 'translateY(0)';
-              }}
             >
-              📅 Schedule a Call
+              Schedule a Call
             </a>
           </div>
 
-          {/* Return Home Link */}
+          {/* Return Home */}
           <a
             href="/"
             target="_blank"
@@ -290,8 +266,6 @@ function Success() {
               fontWeight: '500',
               transition: 'color 0.2s'
             }}
-            onMouseEnter={(e) => e.target.style.color = '#667eea'}
-            onMouseLeave={(e) => e.target.style.color = '#64748b'}
           >
             ← Return to Homepage
           </a>
