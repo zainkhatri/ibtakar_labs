@@ -206,7 +206,7 @@ function Success() {
             marginBottom: '2rem'
           }}>
             <a
-              href="mailto:zainnkhatri@gmail.com"
+              href="mailto:ibtakarlabs@gmail.com"
               className="btn btn-primary"
               style={{
                 flex: '1',
@@ -228,10 +228,10 @@ function Success() {
             </a>
 
             <a
-              href="https://calendly.com/zainnkhatri/30min"
+              href="https://calendly.com/ibtakarlabs/30min"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
+              onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
               className="btn btn-outline"
               style={{
                 flex: '1',

@@ -61,7 +61,7 @@ Stripe needs this to be compliant and professional.
 1. Go to: https://dashboard.stripe.com/settings/public
 2. Fill out:
    - **Business Name**: Ibtakar Labs
-   - **Support Email**: zainnkhatri@gmail.com (or dedicated email)
+   - **Support Email**: ibtakarlabs@gmail.com
    - **Support Phone**: Your phone number
    - **Business Address**: Your California address
    - **Statement Descriptor**: "IBTAKAR LABS" (appears on credit card statements)
@@ -264,7 +264,7 @@ Next steps:
 4. You'll see progress updates every few days
 
 Questions? Reply to this email or schedule a call:
-https://calendly.com/zainnkhatri/30min
+https://calendly.com/ibtakarlabs/30min
 
 Looking forward to working with you!
 
@@ -272,7 +272,7 @@ Best regards,
 Zain Khatri
 Founder, Ibtakar Labs
 NASA Engineer | UC Berkeley
-zainnkhatri@gmail.com
+ibtakarlabs@gmail.com
 https://ibtakarlabs.com
 ```
 

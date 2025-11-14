@@ -330,11 +330,11 @@ function App() {
             <a href="#testimonials" className="nav-link">Testimonials</a>
             <a href="#contact" className="nav-link">Contact</a>
             <a
-              href="https://calendly.com/zainnkhatri/30min"
+              href="https://calendly.com/ibtakarlabs/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-small"
-              onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
+              onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
             >
               Book Consultation
             </a>
@@ -368,12 +368,12 @@ function App() {
             <a href="#testimonials" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
             <a href="#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a>
             <a
-              href="https://calendly.com/zainnkhatri/30min"
+              href="https://calendly.com/ibtakarlabs/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary mobile-cta-btn"
               onClick={(e) => {
-                handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min');
+                handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min');
                 setMobileMenuOpen(false);
               }}
             >
@@ -392,11 +392,11 @@ function App() {
           </p>
           <div className="hero-cta">
             <a
-              href="https://calendly.com/zainnkhatri/30min"
+              href="https://calendly.com/ibtakarlabs/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
-              onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
+              onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
             >
               Schedule Consultation
             </a>
@@ -731,11 +731,11 @@ function App() {
             Schedule a 30-minute consultation to discuss your website project. Get expert advice on web development, pricing, and timeline.
           </p>
           <a
-            href="https://calendly.com/zainnkhatri/30min"
+            href="https://calendly.com/ibtakarlabs/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary btn-large"
-            onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}
+            onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
           >
             Schedule a Consultation
           </a>
@@ -752,7 +752,7 @@ function App() {
           <p>
             <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}>zainkhatri.com</a>
             {' • '}
-            <a href="https://calendly.com/zainnkhatri/30min" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://calendly.com/zainnkhatri/30min')}>Schedule Meeting</a>
+            <a href="https://calendly.com/ibtakarlabs/30min" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}>Schedule Meeting</a>
           </p>
           <p style={{ marginTop: '10px' }}>
             <a href="https://www.linkedin.com/company/ibtakar-labs/about/" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://www.linkedin.com/company/ibtakar-labs/about/')}>LinkedIn</a>

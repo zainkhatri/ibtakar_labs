@@ -85,7 +85,7 @@ export const createCheckoutSession = async (serviceType) => {
     console.error('Error creating checkout session:', error);
 
     // Fallback to Calendly for any Stripe errors
-    const calendlyUrl = `https://calendly.com/zainnkhatri/30min?utm_source=${serviceType}_package&utm_medium=website&utm_campaign=get_started`;
+    const calendlyUrl = `https://calendly.com/ibtakarlabs/30min?utm_source=${serviceType}_package&utm_medium=website&utm_campaign=get_started`;
     if (isMobileDevice()) {
       console.log('Stripe not available, redirecting to Calendly on mobile for consultation');
       window.location.href = calendlyUrl;
