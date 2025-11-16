@@ -386,9 +386,9 @@ function App() {
       {/* Hero Section */}
       <header className="hero" aria-label="Hero section">
         <div className="container">
-          <h1 className="hero-title">Professional Website Development</h1>
+          <h1 className="hero-title">Crafting <em>Exceptional</em> Digital Experiences</h1>
           <p className="hero-subtitle">
-            Custom websites built for small businesses. Designed to help you look professional and attract more customers online.
+            Bespoke websites meticulously engineered for ambitious businesses. Where precision meets artistry, and every pixel serves a purpose.
           </p>
           <div className="hero-cta">
             <a
