@@ -391,7 +391,7 @@ function App() {
         <div className="container">
           <h1 className="hero-title">Crafting <em style={{ color: '#7FB0A3', filter: 'brightness(1.5)', textShadow: '0 0 20px rgba(127, 176, 163, 0.8), 0 0 40px rgba(127, 176, 163, 0.4)' }}>Exceptional</em> Digital Experiences</h1>
           <p className="hero-subtitle">
-            Bespoke websites meticulously engineered for ambitious businesses. Where precision meets artistry, and every pixel serves a purpose.
+            Professional websites designed to help your business succeed. Built with modern technology, optimized for results.
           </p>
           <div className="hero-cta">
             <a
