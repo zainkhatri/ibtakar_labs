@@ -164,7 +164,8 @@ function App() {
         "Mobile-friendly design",
         "Contact form",
         "Basic SEO setup",
-        "Fast loading speed"
+        "Fast loading speed",
+        "+ $22/mo managed hosting & support"
       ]
     },
     {
@@ -180,7 +181,8 @@ function App() {
         "Booking OR store (20 products)",
         "Blog with easy updates",
         "Google Analytics",
-        "Advanced SEO"
+        "Advanced SEO",
+        "+ $22/mo managed hosting & support"
       ],
       popular: true
     },
@@ -197,7 +199,8 @@ function App() {
         "Custom database",
         "API & integrations",
         "Email automation",
-        "Payment processing"
+        "Payment processing",
+        "+ $50/mo managed hosting & support"
       ]
     }
   ];
@@ -386,7 +389,7 @@ function App() {
       {/* Hero Section */}
       <header className="hero" aria-label="Hero section">
         <div className="container">
-          <h1 className="hero-title">Crafting <em>Exceptional</em> Digital Experiences</h1>
+          <h1 className="hero-title">Crafting <em style={{ color: '#7FB0A3', filter: 'brightness(1.5)', textShadow: '0 0 20px rgba(127, 176, 163, 0.8), 0 0 40px rgba(127, 176, 163, 0.4)' }}>Exceptional</em> Digital Experiences</h1>
           <p className="hero-subtitle">
             Bespoke websites meticulously engineered for ambitious businesses. Where precision meets artistry, and every pixel serves a purpose.
           </p>
@@ -453,18 +456,20 @@ function App() {
 
           <div className="managed-plan">
             <div>
-              <h3>Managed Web Plan (Required)</h3>
-              <p className="managed-price">$50/month</p>
+              <h3>Student Portfolio Special</h3>
+              <p className="managed-price">$200</p>
             </div>
-            <p>Includes managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, and email support within 2 business days.</p>
+            <p>A clean, professional portfolio built specifically for students. Modern single-page site that shows off your projects, skills, and experience. Fast turnaround, mobile-friendly, and designed to help you stand out for internships, jobs, or grad school. Includes $22/mo managed hosting & support.</p>
             <button
-              onClick={() => handleCheckout('managed')}
-              disabled={checkoutLoading === 'managed'}
-              className="btn btn-outline managed-plan-btn"
+              onClick={() => handleCheckout('studentPortfolio')}
+              disabled={checkoutLoading === 'studentPortfolio'}
+              className="btn managed-plan-btn"
+              style={{ background: '#476F65', color: '#C5E5DB', borderColor: '#476F65' }}
             >
-              {checkoutLoading === 'managed' ? 'Processing...' : 'Subscribe Now'}
+              {checkoutLoading === 'studentPortfolio' ? 'Processing...' : 'Get Your Portfolio'}
             </button>
           </div>
+
         </div>
       </section>
 

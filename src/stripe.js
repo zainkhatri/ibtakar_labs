@@ -28,8 +28,13 @@ export const stripeServices = {
   },
   managed: {
     name: "Managed Web Plan",
-    price: "$50/month",
-    description: "Managed hosting, SSL certificates, domain renewal, security updates, content updates & revisions, technical support, performance monitoring, email support"
+    price: "$22/month",
+    description: "Covers everything your website needs to stay fast, secure, and updated. Includes hosting, domain renewal, SSL certificates, security patches, content updates, performance monitoring, bug fixes, and priority support."
+  },
+  studentPortfolio: {
+    name: "Student Portfolio Special",
+    price: "$200",
+    description: "A clean, professional portfolio built specifically for students. Modern single-page site that shows off your projects, skills, and experience. Fast turnaround, mobile-friendly, and designed to help you stand out for internships, jobs, or grad school."
   },
   test: {
     name: "Test Payment",

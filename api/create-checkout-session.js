@@ -51,8 +51,13 @@ export default async function handler(req, res) {
       },
       managed: {
         name: 'Managed Web Plan',
-        priceId: 'price_1SRK8z2MvdGcw5oaNDOWT7Q8', // $50/month Managed Web Plan
+        priceId: 'price_1SUKwg2MvdGcw5oadPVomEaF', // $22/month Managed Web Plan
         mode: 'subscription'
+      },
+      studentPortfolio: {
+        name: 'Student Portfolio Special',
+        priceId: 'price_1SUKta2MvdGcw5oaNrr2ZTAr', // $200 Student Portfolio
+        mode: 'payment'
       },
       test: {
         name: 'Test Payment ($1)',
