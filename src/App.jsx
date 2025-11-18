@@ -116,6 +116,13 @@ function App() {
 
   const portfolioItems = [
     {
+      name: "American Horizon Medical",
+      url: "https://www.ahorizonmedical.com",
+      description: "Professional healthcare practice website with patient portal and digital engagement",
+      category: "Healthcare",
+      tier: "Premium"
+    },
+    {
       name: "Interactive App",
       url: "https://meetyourmaker.vercel.app",
       description: "Interactive web application with dynamic features",
