@@ -13,17 +13,17 @@ const isMobileDevice = () => {
 export const stripeServices = {
   starter: {
     name: "Starter Website",
-    price: "$999",
+    price: "$500",
     description: "3 simple pages, basic template design, mobile responsive, contact form, SEO optimization"
   },
   pro: {
     name: "Pro Website",
-    price: "$1,999",
+    price: "$1,000",
     description: "Custom visual design & branding, up to 5 dynamic pages, advanced React animations, e-commerce/booking system, content management dashboard, advanced SEO & analytics, performance optimization, Google Analytics integration"
   },
   premium: {
     name: "Premium Website",
-    price: "$3,999+",
+    price: "$2,000+",
     description: "Everything in Pro + custom database & API, email automation & marketing, social media integration, payment gateway integration, multi-language support, advanced integrations"
   },
   managed: {

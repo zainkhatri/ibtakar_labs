@@ -36,17 +36,17 @@ export default async function handler(req, res) {
     const services = {
       starter: {
         name: 'Starter Website',
-        priceId: 'price_1SRK882MvdGcw5oapmDRabcu', // $999 Starter Website
+        priceId: 'price_1SbT8h2MvdGcw5oaRwsQJeDm', // $480 Starter Website (prod_TYaJWAjRp2a4BT)
         mode: 'payment'
       },
       pro: {
         name: 'Pro Website',
-        priceId: 'price_1SRK7k2MvdGcw5oaQ6pkkfJV', // $1,999 Pro Website
+        priceId: 'price_1SbTAR2MvdGcw5oaFmx11ZcQ', // $980 Pro Website (prod_TYaLTz0taF4DAX)
         mode: 'payment'
       },
       premium: {
         name: 'Premium Website',
-        priceId: 'price_1SRK7H2MvdGcw5oaAjwaYO6Y', // $3,999 Premium Website
+        priceId: 'price_1SbTBa2MvdGcw5oapxZT1zl8', // $1,950 Premium Website (prod_TYaMUqyVRaJPck)
         mode: 'payment'
       },
       managed: {
@@ -56,7 +56,7 @@ export default async function handler(req, res) {
       },
       studentPortfolio: {
         name: 'Student Portfolio Special',
-        priceId: 'price_1SUKta2MvdGcw5oaNrr2ZTAr', // $200 Student Portfolio
+        priceId: 'price_1SbTCT2MvdGcw5oahoYZjtTD', // $90 Student Portfolio (prod_TYaNBXl9YDzWjI)
         mode: 'payment'
       },
       test: {
