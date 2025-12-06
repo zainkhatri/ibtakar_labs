@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { database } from './firebase'
 import { ref, push, onValue, query, orderByChild } from 'firebase/database'
 import { createCheckoutSession } from './stripe'
+import { SparklesText } from './components/ui/SparklesText'
+import { TestimonialMarquee } from './components/TestimonialMarquee'
 import './App.css'
 
 // Mobile detection utility
@@ -345,12 +347,6 @@ function App() {
             <a href="#portfolio" className="nav-link">Portfolio</a>
             <a href="#testimonials" className="nav-link">Testimonials</a>
             <a href="#contact" className="nav-link">Contact</a>
-            <a
-              href="mailto:ibtakarlabs@gmail.com?subject=Website Development Inquiry"
-              className="btn btn-primary btn-small"
-            >
-              Contact Us
-            </a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -394,7 +390,17 @@ function App() {
       {/* Hero Section */}
       <header className="hero" aria-label="Hero section">
         <div className="container">
-          <h1 className="hero-title">Crafting <em style={{ color: '#7FB0A3', filter: 'brightness(1.5)', textShadow: '0 0 20px rgba(127, 176, 163, 0.8), 0 0 40px rgba(127, 176, 163, 0.4)' }}>Exceptional</em> Digital Experiences</h1>
+          <h1 className="hero-title">
+            Crafting <SparklesText 
+              text="Exceptional" 
+              colors={{ first: '#7FB0A3', second: '#C5E5DB' }}
+              sparklesCount={15}
+              style={{
+                fontStyle: 'italic',
+                color: '#C5E5DB',
+              }}
+            /> Digital Experiences
+          </h1>
           <p className="hero-subtitle">
             Professional websites designed to help your business succeed. Built with modern technology, optimized for results.
           </p>
@@ -467,8 +473,7 @@ function App() {
             <button
               onClick={() => handleCheckout('studentPortfolio')}
               disabled={checkoutLoading === 'studentPortfolio'}
-              className="btn managed-plan-btn"
-              style={{ background: '#476F65', color: '#C5E5DB', borderColor: '#476F65' }}
+              className="btn btn-outline"
             >
               {checkoutLoading === 'studentPortfolio' ? 'Processing...' : 'Get Your Portfolio'}
             </button>
@@ -480,16 +485,24 @@ function App() {
       {/* Meet the Founder Section */}
       <section className="founder" id="founder" aria-labelledby="founder-heading">
         <div className="container">
-          <h2 id="founder-heading" className="section-title">Meet the Founder</h2>
-
           <div className="founder-content" itemScope itemType="https://schema.org/Person">
-            <div className="founder-image">
-              <img src="/founder.jpeg" alt="Zain Khatri - NASA Engineer and Professional Web Developer" itemProp="image" />
-            </div>
-            <div className="founder-info">
-              <h3 className="founder-name" itemProp="name">Zain Khatri</h3>
-              <p className="founder-title" itemProp="jobTitle">NASA Engineer</p>
+            <div className="founder-left">
+              <h2 id="founder-heading" className="section-title founder-section-title">Meet the Founder</h2>
+              
+              <div className="founder-image">
+                <img src="/founder.jpeg" alt="Zain Khatri - NASA Engineer and Professional Web Developer" itemProp="image" />
+              </div>
 
+              <h3 className="founder-name" itemProp="name">Zain Khatri</h3>
+
+              <div className="founder-logos">
+                <img src="/nasa.png" alt="NASA - National Aeronautics and Space Administration" className="company-logo" />
+                <img src="/logo-ucberkeley.png" alt="UC Berkeley - University of California Berkeley" className="company-logo" />
+                <img src="/ucsd.png" alt="UC San Diego - University of California San Diego" className="company-logo" />
+              </div>
+            </div>
+
+            <div className="founder-right">
               <div className="founder-bio">
                 <p>
                   With years of experience in web development and a passion for creating
@@ -501,12 +514,6 @@ function App() {
                   thoughtful design. I work closely with each client to understand their
                   unique needs and deliver solutions that exceed expectations.
                 </p>
-              </div>
-
-              <div className="founder-logos">
-                <img src="/nasa.png" alt="NASA - National Aeronautics and Space Administration" className="company-logo" />
-                <img src="/logo-ucberkeley.png" alt="UC Berkeley - University of California Berkeley" className="company-logo" />
-                <img src="/ucsd.png" alt="UC San Diego - University of California San Diego" className="company-logo" />
               </div>
 
               <div className="founder-stats">
@@ -528,7 +535,7 @@ function App() {
                 href="https://zainkhatri.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline"
+                className="btn btn-founder-portfolio"
                 onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}
               >
                 View Full Portfolio
@@ -540,63 +547,48 @@ function App() {
 
       {/* Portfolio Section */}
       <section className="portfolio" id="portfolio" aria-labelledby="portfolio-heading">
-        <div className="container portfolio-container">
+        <div className="container">
           <h2 id="portfolio-heading" className="section-title">Web Development Portfolio</h2>
           <p className="section-subtitle">
             Explore live examples of professional websites including e-commerce, portfolios, and business sites. Real projects for real clients.
           </p>
 
-          <div className="portfolio-showcase">
-            <div className="portfolio-viewer">
-              <div className="viewer-header">
-                <div className="portfolio-navigation">
-                  {portfolioItems.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setActiveProject(index);
-                        setIframeLoading(true);
-                      }}
-                      className={`portfolio-tab ${activeProject === index ? 'active' : ''}`}
-                    >
-                      <span className="tab-category">{item.category}</span>
-                      <span className="tab-name">{item.name}</span>
-                    </button>
-                  ))}
-                </div>
-                <div className="viewer-info">
-                  <div className="viewer-info-row">
-                    <p className="viewer-description">{portfolioItems[activeProject].description}</p>
-                    <span className={`portfolio-tier-badge tier-${portfolioItems[activeProject].tier.toLowerCase()}`}>
-                      {portfolioItems[activeProject].tier} Tier
+          <div className="portfolio-grid">
+            {portfolioItems.map((item, index) => (
+              <div key={index} className="portfolio-card">
+                <div className="portfolio-card-header">
+                  <div className="portfolio-card-info">
+                    <span className="portfolio-category">{item.category}</span>
+                    <h3 className="portfolio-name">{item.name}</h3>
+                    <p className="portfolio-description">{item.description}</p>
+                    <span className={`portfolio-tier-badge tier-${item.tier.toLowerCase()}`}>
+                      {item.tier} Tier
                     </span>
                   </div>
                   <a
-                    href={portfolioItems[activeProject].url}
+                    href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="viewer-link"
-                    onClick={(e) => handleLinkClick(e, portfolioItems[activeProject].url)}
+                    className="btn btn-outline portfolio-link"
+                    onClick={(e) => handleLinkClick(e, item.url)}
                   >
-                    Visit Live Site →
+                    Visit Site →
                   </a>
                 </div>
+                <div className="portfolio-preview">
+                  <iframe
+                    src={item.url}
+                    title={item.name}
+                    className="portfolio-iframe-card"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <div className="iframe-container">
-                <iframe
-                  src={portfolioItems[activeProject].url}
-                  title={portfolioItems[activeProject].name}
-                  className={`portfolio-iframe ${iframeLoading ? 'loading' : ''}`}
-                  sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                  onLoad={() => setIframeLoading(false)}
-                  onError={() => setIframeLoading(false)}
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-
 
       {/* Testimonials Section */}
       <section className="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
@@ -688,45 +680,7 @@ function App() {
                 <p>Be the first to leave a review! Share your experience working with Ibtakar Labs.</p>
               </div>
             ) : (
-              <div className="testimonials-grid" role="list" aria-label="Client testimonials and reviews">
-                {reviews.map((review) => (
-                  <article key={review.id} className="testimonial-card" role="listitem" itemScope itemType="https://schema.org/Review">
-                    <div className="testimonial-quote">"</div>
-
-                    {/* Item being reviewed - Ibtakar Labs as LocalBusiness */}
-                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
-                      <meta itemProp="name" content="Ibtakar Labs" />
-                      <meta itemProp="description" content="Professional Website Development Services" />
-                      <meta itemProp="url" content="https://ibtakarlabs.com" />
-                      <meta itemProp="image" content="https://ibtakarlabs.com/alt.png" />
-                      <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                        <meta itemProp="addressRegion" content="CA" />
-                        <meta itemProp="addressCountry" content="US" />
-                      </div>
-                    </div>
-
-                    <div className="review-rating" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                      <meta itemProp="ratingValue" content={review.rating} />
-                      <meta itemProp="bestRating" content="5" />
-                      {renderStars(review.rating)}
-                    </div>
-                    <p className="testimonial-text" itemProp="reviewBody">{review.text}</p>
-                    <div className="testimonial-author" itemProp="author" itemScope itemType="https://schema.org/Person">
-                      <div className="author-info">
-                        <div className="author-name" itemProp="name">{review.name}</div>
-                        <div className="author-role" itemProp="jobTitle">{review.role}</div>
-                        <div className="author-company" itemProp="worksFor">{review.company}</div>
-                      </div>
-                    </div>
-                    {review.date && (
-                      <div className="review-date">
-                        <meta itemProp="datePublished" content={review.createdAt} />
-                        {review.date}
-                      </div>
-                    )}
-                  </article>
-                ))}
-              </div>
+              <TestimonialMarquee reviews={reviews} />
             )}
           </div>
         </div>
@@ -765,7 +719,7 @@ function App() {
             {' • '}
             <a href="https://www.instagram.com/ibtakarlabs/" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://www.instagram.com/ibtakarlabs/')}>Instagram</a>
             {' • '}
-            <a href="https://github.com/zkhatri1" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://github.com/zkhatri1')}>GitHub</a>
+            <a href="https://github.com/ibtakarlabs" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://github.com/ibtakarlabs')}>GitHub</a>
           </p>
         </div>
       </footer>
