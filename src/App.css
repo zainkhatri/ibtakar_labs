@@ -566,22 +566,22 @@ section {
 
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 600;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: var(--text);
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   text-align: center;
   color: var(--text-light);
   max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.7;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
   font-weight: 400;
 }
 
@@ -589,7 +589,7 @@ section {
 .services {
   background: var(--bg-cream);
   position: relative;
-  padding: 7rem 0 8rem;
+  padding: 4rem 0 4rem;
   min-height: auto;
 }
 
@@ -606,16 +606,16 @@ section {
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
   align-items: start;
 }
 
 .service-card {
-  background: white;
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #FAFCFA 0%, #F4F9F7 100%);
+  border: 2px solid var(--primary-light);
   border-radius: 16px;
-  padding: 2.5rem 2rem;
+  padding: 1.25rem 1.25rem;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   display: flex;
@@ -632,8 +632,8 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light), var(--accent));
   border-radius: 16px 16px 0 0;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -646,22 +646,26 @@ section {
 .service-card:hover {
   transform: translateY(-12px);
   box-shadow: var(--shadow-xl);
-  border-color: transparent;
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F4F9F7 100%);
 }
 
 .service-card.popular {
-  border-color: var(--highlight);
-  border-width: 2px;
-  background: linear-gradient(135deg, white 0%, rgba(201, 169, 98, 0.02) 100%);
+  border-color: var(--primary);
+  border-width: 2.5px;
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(127, 176, 163, 0.08) 100%);
   transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(86, 137, 124, 0.15);
 }
 
 .service-card.popular::before {
   opacity: 1;
+  height: 6px;
 }
 
 .service-card.popular:hover {
   transform: scale(1.02) translateY(-12px);
+  border-color: var(--primary-dark);
 }
 
 .popular-badge {
@@ -669,41 +673,77 @@ section {
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--highlight) 0%, var(--highlight-light) 100%);
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
   padding: 0.6rem 1.75rem;
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  box-shadow: var(--shadow-highlight);
+  box-shadow: 0 4px 16px rgba(86, 137, 124, 0.3);
   z-index: 10;
   white-space: nowrap;
+  border: 2px solid white;
 }
 
 .service-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   color: var(--text);
   letter-spacing: -0.02em;
 }
 
 .service-price {
   font-family: 'Inter', sans-serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--accent);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
   letter-spacing: -0.03em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: flex-start;
+}
+
+.price-note {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: -0.15rem;
+}
+
+.monthly-price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  background: linear-gradient(135deg, var(--accent-glow), rgba(127, 176, 163, 0.08));
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+  border: 1.5px solid var(--primary-light);
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(127, 176, 163, 0.15);
+  transition: all 0.3s ease;
+  margin-top: 0.1rem;
+}
+
+.monthly-price:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(127, 176, 163, 0.25);
+  border-color: var(--primary);
 }
 
 .service-delivery {
   color: var(--text-muted);
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -711,28 +751,28 @@ section {
 
 .service-description {
   color: var(--text-light);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem;
   background: var(--bg-light);
-  border-radius: 8px;
+  border-radius: 6px;
   border-left: 3px solid var(--highlight);
 }
 
 .service-features {
   list-style: none;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   flex: 1;
 }
 
 .service-features li {
-  padding: 0.5rem 0;
-  padding-left: 2rem;
+  padding: 0.25rem 0;
+  padding-left: 1.5rem;
   position: relative;
   color: var(--text);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.35;
   transition: all 0.3s ease;
 }
 
@@ -747,7 +787,7 @@ section {
   left: 0;
   color: var(--highlight);
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 

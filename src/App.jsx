@@ -163,6 +163,8 @@ function App() {
     {
       name: "Starter Website",
       price: "$500",
+      priceNote: "includes 1st month",
+      monthly: "then $20/mo",
       delivery: "1 week",
       stripeType: "starter",
       description: "Perfect for small businesses establishing an online presence.",
@@ -172,12 +174,14 @@ function App() {
         "Contact form",
         "Basic SEO setup",
         "Fast loading speed",
-        "+ $22/mo managed hosting & support"
+        "Managed hosting & support"
       ]
     },
     {
       name: "Pro Website",
       price: "$1,000",
+      priceNote: "includes 1st month",
+      monthly: "then $20/mo",
       delivery: "2 weeks",
       stripeType: "pro",
       description: "For growing businesses ready to make an impact.",
@@ -189,13 +193,15 @@ function App() {
         "Blog with easy updates",
         "Google Analytics",
         "Advanced SEO",
-        "+ $22/mo managed hosting & support"
+        "Managed hosting & support"
       ],
       popular: true
     },
     {
       name: "Premium Website",
       price: "$2,000+",
+      priceNote: "includes 1st month",
+      monthly: "then $50/mo",
       delivery: "3-4 weeks",
       stripeType: "premium",
       description: "Enterprise solution for ambitious businesses.",
@@ -207,7 +213,7 @@ function App() {
         "API & integrations",
         "Email automation",
         "Payment processing",
-        "+ $50/mo managed hosting & support"
+        "Premium hosting & support"
       ]
     }
   ];
@@ -340,13 +346,10 @@ function App() {
             <a href="#testimonials" className="nav-link">Testimonials</a>
             <a href="#contact" className="nav-link">Contact</a>
             <a
-              href="https://calendly.com/ibtakarlabs/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:ibtakarlabs@gmail.com?subject=Website Development Inquiry"
               className="btn btn-primary btn-small"
-              onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
             >
-              Book Consultation
+              Contact Us
             </a>
           </div>
           
@@ -378,16 +381,11 @@ function App() {
             <a href="#testimonials" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Testimonials</a>
             <a href="#contact" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</a>
             <a
-              href="https://calendly.com/ibtakarlabs/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:ibtakarlabs@gmail.com?subject=Website Development Inquiry"
               className="btn btn-primary mobile-cta-btn"
-              onClick={(e) => {
-                handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min');
-                setMobileMenuOpen(false);
-              }}
+              onClick={() => setMobileMenuOpen(false)}
             >
-              Book Consultation
+              Contact Us
             </a>
           </div>
         </div>
@@ -402,13 +400,10 @@ function App() {
           </p>
           <div className="hero-cta">
             <a
-              href="https://calendly.com/ibtakarlabs/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:ibtakarlabs@gmail.com?subject=Website Development Inquiry"
               className="btn btn-primary"
-              onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
             >
-              Schedule Consultation
+              Get in Touch
             </a>
             <a href="#portfolio" className="btn btn-secondary">
               View Portfolio
@@ -439,6 +434,8 @@ function App() {
                 <h3 className="service-name" itemProp="name">{service.name}</h3>
                 <div className="service-price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
                   <span itemProp="price">{service.price}</span>
+                  <span className="price-note">{service.priceNote}</span>
+                  <span className="monthly-price">{service.monthly}</span>
                 </div>
                 <div className="service-delivery">Delivery: {service.delivery}</div>
                 {service.description && (
@@ -740,16 +737,13 @@ function App() {
         <div className="container">
           <h2 id="contact-heading" className="section-title">Let's Work Together</h2>
           <p className="contact-text">
-            Schedule a 30-minute consultation to discuss your website project. Get expert advice on web development, pricing, and timeline.
+            Ready to start your project? Send us an email and we'll get back to you within 24 hours to discuss your website needs, pricing, and timeline.
           </p>
           <a
-            href="https://calendly.com/ibtakarlabs/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:ibtakarlabs@gmail.com?subject=Website Development Inquiry"
             className="btn btn-primary btn-large"
-            onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}
           >
-            Schedule a Consultation
+            Email Us: ibtakarlabs@gmail.com
           </a>
           <div className="contact-info">
             <p>Visit <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}>zainkhatri.com</a></p>
@@ -764,7 +758,7 @@ function App() {
           <p>
             <a href="https://zainkhatri.com" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://zainkhatri.com')}>zainkhatri.com</a>
             {' • '}
-            <a href="https://calendly.com/ibtakarlabs/30min" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://calendly.com/ibtakarlabs/30min')}>Schedule Meeting</a>
+            <a href="mailto:ibtakarlabs@gmail.com">ibtakarlabs@gmail.com</a>
           </p>
           <p style={{ marginTop: '10px' }}>
             <a href="https://www.linkedin.com/company/ibtakar-labs/about/" target="_blank" rel="noopener noreferrer" onClick={(e) => handleLinkClick(e, 'https://www.linkedin.com/company/ibtakar-labs/about/')}>LinkedIn</a>
