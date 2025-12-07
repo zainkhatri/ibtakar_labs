@@ -976,6 +976,96 @@ section {
   margin-top: 4rem;
 }
 
+/* Responsive grid for medium screens */
+@media (max-width: 1400px) {
+  .founder-content {
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .founder-content {
+    gap: 4rem;
+  }
+
+  .founder-image {
+    width: 350px;
+    height: 350px;
+  }
+
+  .founder-bio p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .stat-number {
+    font-size: 2.75rem;
+  }
+}
+
+@media (max-width: 1180px) {
+  .founder-content {
+    gap: 3rem;
+  }
+
+  .founder-image {
+    width: 320px;
+    height: 320px;
+  }
+
+  .founder-bio {
+    padding: 2rem 2.5rem;
+  }
+
+  .founder-bio p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .founder-name {
+    font-size: 2.25rem;
+  }
+
+  .founder-stats {
+    gap: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .founder-content {
+    gap: 2.5rem;
+  }
+
+  .founder-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .founder-bio {
+    padding: 2rem 2rem;
+  }
+
+  .stat {
+    padding: 1.75rem 2rem;
+  }
+
+  .container {
+    padding: 0 2.5rem;
+  }
+
+  .founder .container {
+    padding: 0 2rem;
+  }
+}
+
 .founder-left {
   display: flex;
   flex-direction: column;
