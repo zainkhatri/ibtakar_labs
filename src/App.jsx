@@ -385,7 +385,7 @@ function App() {
                 src="/alt.png"
                 alt="Ibtakar Labs"
                 className="logo-icon"
-                fetchpriority="high"
+                fetchPriority="high"
                 decoding="async"
               />
             </div>

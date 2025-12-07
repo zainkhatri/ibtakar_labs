@@ -998,8 +998,32 @@ section {
     line-height: 1.7;
   }
 
+  .stat {
+    padding: 1.5rem 1.25rem;
+    min-width: 165px;
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: 210px;
+  }
+
   .stat-number {
-    font-size: 2.75rem;
+    font-size: 2rem;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    white-space: normal;
+    line-height: 1.35;
+    width: 100%;
+  }
+
+  .founder-stats {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -1027,15 +1051,31 @@ section {
   }
 
   .founder-stats {
-    gap: 2rem;
+    gap: 1.125rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat {
+    padding: 1.5rem 1.125rem;
+    min-width: 155px;
+    flex: 1 1 calc(33.333% - 0.875rem);
+    max-width: 190px;
   }
 
   .stat-number {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    width: 100%;
   }
 
   .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    white-space: normal;
+    line-height: 1.35;
+    width: 100%;
   }
 }
 
@@ -1054,7 +1094,32 @@ section {
   }
 
   .stat {
-    padding: 1.75rem 2rem;
+    padding: 1.5rem 1.125rem;
+    min-width: 150px;
+    flex: 1 1 calc(33.333% - 0.875rem);
+    max-width: 185px;
+  }
+
+  .stat-number {
+    font-size: 1.85rem;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.35;
+    width: 100%;
+  }
+
+  .founder-stats {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .container {
@@ -1226,43 +1291,62 @@ section {
 .founder-stats {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 0;
   border: none;
   margin: 0;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 100%;
+  overflow: visible;
+  max-width: 100%;
 }
 
 .stat {
   text-align: center;
   background: var(--primary-dark);
-  padding: 2rem 2.5rem;
+  padding: 1.75rem 1.5rem;
   border-radius: 16px;
   border: 6px solid white;
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  min-width: 150px;
+  min-width: 180px;
+  max-width: 240px;
+  flex: 1 1 calc(33.333% - 1rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .stat-number {
   font-family: 'Inter', sans-serif;
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 900;
   color: white;
   letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+  overflow: visible !important;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0;
 }
 
 .stat-label {
-  font-size: 0.95rem;
+  font-size: 0.7rem;
   color: white;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
+  overflow: visible !important;
+  white-space: normal;
+  word-wrap: break-word;
+  width: 100%;
+  line-height: 1.4;
+  padding: 0;
 }
 
 /* ===== PORTFOLIO SECTION - LUXURY ===== */
@@ -1341,6 +1425,7 @@ section {
   .portfolio-card-info {
     flex-wrap: wrap;
     gap: 0.5rem;
+    align-items: center;
   }
 
   .portfolio-category {
@@ -1350,13 +1435,12 @@ section {
 
   .portfolio-name {
     font-size: 1rem;
-    width: 100%;
+    width: auto;
+    flex: 1;
   }
 
   .portfolio-description {
-    font-size: 0.85rem;
-    width: 100%;
-    white-space: normal;
+    display: none; /* Hide description on mobile */
   }
 
   .portfolio-tier-badge {
@@ -2536,6 +2620,51 @@ section {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+
+/* Fix for founder stats between 1025px and 1919px */
+@media (min-width: 1025px) and (max-width: 1919px) {
+  .founder-stats {
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .stat {
+    padding: 1.5rem 1.25rem;
+    min-width: 170px;
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: 220px;
+    overflow: visible;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: visible;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .stat-label {
+    font-size: 0.68rem;
+    white-space: normal;
+    word-break: keep-all;
+    overflow: visible;
+    line-height: 1.35;
+    width: 100%;
+  }
+  
+  .founder-bio {
+    padding: 2.5rem 3rem;
+  }
+  
+  .founder-bio p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+}
+
 @media (max-width: 1024px) {
   .nav-links {
     gap: 2rem;
@@ -2610,7 +2739,31 @@ section {
   }
 
   .founder-stats {
-    gap: 1.5rem;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stat {
+    padding: 1.5rem 1.25rem;
+    min-width: 160px;
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: 200px;
+  }
+  
+  .stat-number {
+    font-size: 1.9rem;
+    white-space: nowrap;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .stat-label {
+    font-size: 0.68rem;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.35;
+    width: 100%;
   }
 }
 
@@ -3565,6 +3718,18 @@ section {
     height: 34px;
   }
 
+  .portfolio-description {
+    display: none; /* Hide description on mobile */
+  }
+
+  .portfolio-card-info {
+    align-items: center;
+  }
+
+  .portfolio-name {
+    width: auto;
+    flex: 1;
+  }
 
   .review-form-container {
     padding: 2rem;

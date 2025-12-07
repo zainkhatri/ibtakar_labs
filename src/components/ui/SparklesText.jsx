@@ -103,3 +103,4 @@ const Sparkle = memo(({ id, x, y, color, delay, scale }) => {
 
 export { SparklesText };
 
+
