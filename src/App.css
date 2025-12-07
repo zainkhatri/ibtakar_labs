@@ -828,9 +828,8 @@ section {
 .managed-plan {
   background: white;
   color: var(--primary-dark);
-  padding: 2rem 3rem;
+  padding: 2.5rem 3rem;
   border-radius: 20px;
-  text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
   position: relative;
@@ -838,10 +837,10 @@ section {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 3rem;
   box-shadow: var(--shadow-lg);
   border: 6px solid var(--highlight);
 }
@@ -850,45 +849,63 @@ section {
   display: none;
 }
 
+.managed-plan-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
 .managed-plan h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin: 0;
   font-weight: 600;
-  position: relative;
-  white-space: nowrap;
   letter-spacing: -0.02em;
   color: var(--primary-dark);
+  white-space: nowrap;
+}
+
+.managed-plan-pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
 }
 
 .managed-price {
   font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 800;
   margin: 0;
-  color: var(--primary-dark);
-  position: relative;
-  white-space: nowrap;
+  color: var(--primary);
+  line-height: 1;
 }
 
-.managed-plan p {
-  color: var(--primary-dark);
-  line-height: 1.5;
-  max-width: none;
+.managed-monthly {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  background: linear-gradient(135deg, var(--accent-glow), rgba(127, 176, 163, 0.08));
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--primary-light);
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 8px rgba(127, 176, 163, 0.15);
+}
+
+.managed-plan-description {
+  color: var(--text);
+  line-height: 1.7;
   margin: 0;
-  font-size: 0.9rem;
-  position: relative;
-  flex: 1;
+  font-size: 1rem;
   text-align: left;
 }
 
-.managed-plan-btn {
+.managed-plan-button {
   margin: 0;
-  background: var(--highlight);
-  color: var(--primary);
-  border-color: var(--highlight);
-  padding: 0.875rem 2rem;
-  font-size: 0.95rem;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -2855,36 +2872,44 @@ section {
   }
 
   .managed-plan {
-    padding: 2rem 1.5rem;
-    margin-top: 2rem;
-    flex-direction: column;
+    padding: 2.5rem 2rem;
+    margin-top: 2.5rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
     text-align: center;
-    gap: 1rem;
-    border-width: 4px;
+  }
+
+  .managed-plan-header {
+    align-items: center;
   }
 
   .managed-plan h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.3;
   }
 
+  .managed-plan-pricing {
+    align-items: center;
+  }
+
   .managed-price {
-    font-size: 1.75rem;
-    line-height: 1.2;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    font-size: 2rem;
   }
 
-  .managed-plan p {
-    text-align: center;
+  .managed-monthly {
     font-size: 0.9rem;
-    line-height: 1.6;
-    word-wrap: break-word;
   }
 
-  .managed-plan .btn {
+  .managed-plan-description {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .managed-plan-button {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1.125rem 2rem;
+    justify-content: center;
   }
 
   .section-title {
@@ -3293,13 +3318,39 @@ section {
 
   .managed-plan {
     padding: 2.25rem 1.75rem;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
     text-align: center;
-    gap: 1.25rem;
   }
 
-  .managed-plan p {
+  .managed-plan-header {
+    align-items: center;
+  }
+
+  .managed-plan h3 {
+    font-size: 1.5rem;
+  }
+
+  .managed-plan-pricing {
+    align-items: center;
+  }
+
+  .managed-price {
+    font-size: 1.9rem;
+  }
+
+  .managed-monthly {
+    font-size: 0.85rem;
+  }
+
+  .managed-plan-description {
     text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .managed-plan-button {
+    width: 100%;
+    justify-content: center;
   }
 
   .contact {
@@ -3359,14 +3410,41 @@ section {
   }
 
   .managed-plan {
-    padding: 2.5rem 1.75rem;
-    flex-direction: column;
+    padding: 2.25rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     text-align: center;
-    gap: 1.25rem;
   }
 
-  .managed-plan p {
+  .managed-plan-header {
+    align-items: center;
+  }
+
+  .managed-plan h3 {
+    font-size: 1.4rem;
+  }
+
+  .managed-plan-pricing {
+    align-items: center;
+  }
+
+  .managed-price {
+    font-size: 1.75rem;
+  }
+
+  .managed-monthly {
+    font-size: 0.8rem;
+  }
+
+  .managed-plan-description {
     text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .managed-plan-button {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.75rem;
   }
 
   .portfolio-tab {

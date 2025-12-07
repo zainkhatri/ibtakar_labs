@@ -518,15 +518,18 @@ function App() {
           </div>
 
           <div className="managed-plan">
-            <div>
+            <div className="managed-plan-header">
               <h3>Student Portfolio Special</h3>
-              <p className="managed-price">$200</p>
+              <div className="managed-plan-pricing">
+                <span className="managed-price">$200</span>
+                <span className="managed-monthly">then $10/mo</span>
+              </div>
             </div>
-            <p>A clean, professional portfolio built specifically for students. Modern single-page site that shows off your projects, skills, and experience. Fast turnaround, mobile-friendly, and designed to help you stand out for internships, jobs, or grad school. Includes $22/mo managed hosting & support.</p>
+            <p className="managed-plan-description">A clean, professional portfolio built specifically for students. Modern single-page site that shows off your projects, skills, and experience. Fast turnaround, mobile-friendly, and designed to help you stand out for internships, jobs, or grad school.</p>
             <button
               onClick={() => handleCheckout('studentPortfolio')}
               disabled={checkoutLoading === 'studentPortfolio'}
-              className="btn btn-outline"
+              className="btn btn-outline managed-plan-button"
             >
               {checkoutLoading === 'studentPortfolio' ? 'Processing...' : 'Get Your Portfolio'}
             </button>
