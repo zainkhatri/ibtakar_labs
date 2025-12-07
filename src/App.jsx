@@ -640,7 +640,6 @@ function App() {
                   <div className="portfolio-card-info">
                     <span className="portfolio-category">{item.category}</span>
                     <h3 className="portfolio-name">{item.name}</h3>
-                    <p className="portfolio-description">{item.description}</p>
                     <span className={`portfolio-tier-badge tier-${item.tier.toLowerCase()}`}>
                       {item.tier} Tier
                     </span>
