@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { database } from './firebase'
 import { ref, push, onValue, query, orderByChild } from 'firebase/database'
@@ -60,6 +60,24 @@ function App() {
     });
   };
 
+  // Detect if user is on mobile
+  const isMobile = useMemo(() => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           window.innerWidth <= 768;
+  }, []);
+
+  // Memoize scroll handler with throttling (optimized for mobile)
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 50);
+  }, []);
+
+  // Memoize resize handler with debouncing
+  const handleResize = useCallback(() => {
+    if (window.innerWidth > 768 && mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  }, [mobileMenuOpen]);
+
   useEffect(() => {
     // Reset scroll position on page load
     window.history.scrollRestoration = 'manual';
@@ -72,13 +90,15 @@ function App() {
       behavior: 'instant'
     });
 
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    const handleResize = () => {
-      if (window.innerWidth > 768 && mobileMenuOpen) {
-        setMobileMenuOpen(false);
+    // Throttle scroll handler (more aggressive throttle on mobile for better performance)
+    let scrollTimeout;
+    const throttleDelay = isMobile ? 32 : 16; // 30fps on mobile, 60fps on desktop
+    const throttledScroll = () => {
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+          handleScroll();
+          scrollTimeout = null;
+        }, throttleDelay);
       }
     };
 
@@ -106,15 +126,16 @@ function App() {
     };
 
     document.addEventListener('click', handleAnchorClick);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', throttledScroll);
       window.removeEventListener('resize', handleResize);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
     };
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, handleScroll, handleResize, isMobile]);
 
   const portfolioItems = [
     {
@@ -221,11 +242,29 @@ function App() {
   ];
 
 
-  // Load reviews from Firebase on component mount
+  // Memoize profanity check function
+  const checkProfanity = useCallback((text) => {
+    return containsProfanity(text);
+  }, []);
+
+  // Load reviews from Firebase on component mount with caching
   useEffect(() => {
+    // Check for cached reviews first
+    const cachedReviews = sessionStorage.getItem('cached_reviews');
+    const cacheTimestamp = sessionStorage.getItem('cache_timestamp');
+    const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+    if (cachedReviews && cacheTimestamp) {
+      const age = Date.now() - parseInt(cacheTimestamp);
+      if (age < CACHE_DURATION) {
+        setReviews(JSON.parse(cachedReviews));
+        return;
+      }
+    }
+
     const reviewsRef = ref(database, 'reviews');
     const reviewsQuery = query(reviewsRef, orderByChild('rating'));
-    
+
     const unsubscribe = onValue(reviewsQuery, (snapshot) => {
       const data = snapshot.val();
       if (data) {
@@ -233,27 +272,34 @@ function App() {
           id: key,
           ...value
         }));
-        
+
         // Only show reviews with 4.5+ stars and no profanity
-        const highRatedReviews = reviewsArray.filter(review => 
-          review.rating >= 4.5 && 
-          !containsProfanity(review.text) && 
-          !containsProfanity(review.name) &&
+        const highRatedReviews = reviewsArray.filter(review =>
+          review.rating >= 4.5 &&
+          !checkProfanity(review.text) &&
+          !checkProfanity(review.name) &&
           review.approved !== false
         );
-        
+
         // Sort by date (newest first)
         highRatedReviews.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        
+
+        // Cache the results
+        sessionStorage.setItem('cached_reviews', JSON.stringify(highRatedReviews));
+        sessionStorage.setItem('cache_timestamp', Date.now().toString());
+
         setReviews(highRatedReviews);
       } else {
         setReviews([]);
       }
+    }, {
+      // Use onlyOnce option to avoid unnecessary re-renders
+      onlyOnce: false
     });
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, []);
+  }, [checkProfanity]);
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
@@ -299,21 +345,22 @@ function App() {
   };
 
 
-  const renderStars = (rating) => {
+  // Memoize render stars function
+  const renderStars = useCallback((rating) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
-    
+
     for (let i = 0; i < fullStars; i++) {
       stars.push(<span key={i} className="star filled">★</span>);
     }
-    
+
     if (hasHalfStar) {
       stars.push(<span key="half" className="star half">★</span>);
     }
-    
+
     return stars;
-  };
+  }, []);
 
   const handleCheckout = async (serviceType) => {
     setCheckoutLoading(serviceType);
@@ -334,7 +381,13 @@ function App() {
         <div className="container nav-container">
           <div className="nav-brand">
             <div className="brand-logo">
-              <img src="/alt.png" alt="Ibtakar Labs" className="logo-icon" />
+              <img
+                src="/alt.png"
+                alt="Ibtakar Labs"
+                className="logo-icon"
+                fetchpriority="high"
+                decoding="async"
+              />
             </div>
             <div className="brand-text">
               <span className="brand-name">Ibtakar Labs</span>
@@ -391,10 +444,10 @@ function App() {
       <header className="hero" aria-label="Hero section">
         <div className="container">
           <h1 className="hero-title">
-            Crafting <SparklesText 
-              text="Exceptional" 
+            Crafting <SparklesText
+              text="Exceptional"
               colors={{ first: '#7FB0A3', second: '#C5E5DB' }}
-              sparklesCount={15}
+              sparklesCount={isMobile ? 8 : 15}
               style={{
                 fontStyle: 'italic',
                 color: '#C5E5DB',
@@ -490,15 +543,39 @@ function App() {
               <h2 id="founder-heading" className="section-title founder-section-title">Meet the Founder</h2>
               
               <div className="founder-image">
-                <img src="/founder.jpeg" alt="Zain Khatri - NASA Engineer and Professional Web Developer" itemProp="image" />
+                <img
+                  src="/founder.jpeg"
+                  alt="Zain Khatri - NASA Engineer and Professional Web Developer"
+                  itemProp="image"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               <h3 className="founder-name" itemProp="name">Zain Khatri</h3>
 
               <div className="founder-logos">
-                <img src="/nasa.png" alt="NASA - National Aeronautics and Space Administration" className="company-logo" />
-                <img src="/logo-ucberkeley.png" alt="UC Berkeley - University of California Berkeley" className="company-logo" />
-                <img src="/ucsd.png" alt="UC San Diego - University of California San Diego" className="company-logo" />
+                <img
+                  src="/nasa.png"
+                  alt="NASA - National Aeronautics and Space Administration"
+                  className="company-logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="/logo-ucberkeley.png"
+                  alt="UC Berkeley - University of California Berkeley"
+                  className="company-logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="/ucsd.png"
+                  alt="UC San Diego - University of California San Diego"
+                  className="company-logo"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
 
@@ -582,6 +659,7 @@ function App() {
                     className="portfolio-iframe-card"
                     sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                     loading="lazy"
+                    importance="low"
                   />
                 </div>
               </div>

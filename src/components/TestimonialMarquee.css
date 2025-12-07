@@ -18,6 +18,8 @@
   gap: 2rem;
   animation: marquee-scroll 100s linear infinite;
   will-change: transform;
+  contain: layout style paint;
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .marquee-track:hover {
@@ -43,6 +45,8 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 8px 32px rgba(86, 137, 124, 0.15);
+  contain: layout style paint;
+  will-change: auto;
 }
 
 .marquee-card:hover {
@@ -177,61 +181,101 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .marquee-card {
-    flex: 0 0 400px;
-    padding: 2rem 2.5rem;
+    flex: 0 0 340px;
+    padding: 1.75rem 1.5rem;
+    border-width: 4px;
   }
 
   .marquee-track {
-    gap: 1.5rem;
-    animation: marquee-scroll 80s linear infinite;
+    gap: 1.25rem;
+    animation: marquee-scroll 200s linear infinite;
   }
 
   .marquee-container {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .marquee-quote {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .marquee-rating {
+    margin-bottom: 1.5rem;
   }
 
   .marquee-star {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .marquee-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
   }
 
   .marquee-author-name {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .marquee-author-role {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .marquee-author-company {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .marquee-gradient-left,
   .marquee-gradient-right {
-    width: 50px;
+    width: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .marquee-card {
-    flex: 0 0 280px;
-    padding: 1.5rem 1.75rem;
+    flex: 0 0 300px;
+    padding: 1.5rem 1.25rem;
+    border-width: 3px;
   }
 
   .marquee-track {
     gap: 1rem;
+    animation: marquee-scroll 180s linear infinite;
   }
 
   .marquee-container {
     gap: 1rem;
+  }
+
+  .marquee-quote {
+    font-size: 2rem;
+  }
+
+  .marquee-star {
+    font-size: 1.35rem;
+  }
+
+  .marquee-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .marquee-author-name {
+    font-size: 1rem;
+  }
+
+  .marquee-author-role {
+    font-size: 0.85rem;
+  }
+
+  .marquee-author-company {
+    font-size: 0.75rem;
+  }
+
+  .marquee-gradient-left,
+  .marquee-gradient-right {
+    width: 30px;
   }
 }
 

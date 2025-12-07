@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback, memo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 
@@ -12,20 +12,21 @@ const SparklesText = ({
 }) => {
   const [sparkles, setSparkles] = useState([]);
 
-  useEffect(() => {
-    const generateStar = () => {
-      const starX = `${Math.random() * 100}%`;
-      const starY = `${Math.random() * 100}%`;
-      const color = Math.random() > 0.5 ? colors.first : colors.second;
-      const delay = Math.random() * 2;
-      const scale = Math.random() * 1 + 0.3;
-      const lifespan = Math.random() * 10 + 5;
-      const id = `${starX}-${starY}-${Date.now()}`;
-      return { id, x: starX, y: starY, color, delay, scale, lifespan };
-    };
+  // Memoize generateStar function
+  const generateStar = useCallback(() => {
+    const starX = `${Math.random() * 100}%`;
+    const starY = `${Math.random() * 100}%`;
+    const color = Math.random() > 0.5 ? colors.first : colors.second;
+    const delay = Math.random() * 2;
+    const scale = Math.random() * 1 + 0.3;
+    const lifespan = Math.random() * 10 + 5;
+    const id = `${starX}-${starY}-${Date.now()}-${Math.random()}`;
+    return { id, x: starX, y: starY, color, delay, scale, lifespan };
+  }, [colors.first, colors.second]);
 
+  useEffect(() => {
     const initializeStars = () => {
-      const newSparkles = Array.from({ length: sparklesCount }, generateStar);
+      const newSparkles = Array.from({ length: sparklesCount }, () => generateStar());
       setSparkles(newSparkles);
     };
 
@@ -35,17 +36,18 @@ const SparklesText = ({
           if (star.lifespan <= 0) {
             return generateStar();
           } else {
-            return { ...star, lifespan: star.lifespan - 0.1 };
+            return { ...star, lifespan: star.lifespan - 0.2 };
           }
         }),
       );
     };
 
     initializeStars();
-    const interval = setInterval(updateStars, 100);
+    // Increased interval from 100ms to 200ms to reduce CPU usage
+    const interval = setInterval(updateStars, 200);
 
     return () => clearInterval(interval);
-  }, [colors.first, colors.second, sparklesCount]);
+  }, [sparklesCount, generateStar]);
 
   return (
     <span
@@ -67,7 +69,8 @@ const SparklesText = ({
   );
 };
 
-const Sparkle = ({ id, x, y, color, delay, scale }) => {
+// Memoize Sparkle component to prevent unnecessary re-renders
+const Sparkle = memo(({ id, x, y, color, delay, scale }) => {
   return (
     <motion.svg
       key={id}
@@ -77,6 +80,7 @@ const Sparkle = ({ id, x, y, color, delay, scale }) => {
         top: y,
         pointerEvents: 'none',
         zIndex: 20,
+        willChange: 'opacity, transform',
       }}
       initial={{ opacity: 0 }}
       animate={{
@@ -95,7 +99,7 @@ const Sparkle = ({ id, x, y, color, delay, scale }) => {
       />
     </motion.svg>
   );
-};
+});
 
 export { SparklesText };
 
