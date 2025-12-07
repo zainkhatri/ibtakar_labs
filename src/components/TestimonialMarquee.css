@@ -206,8 +206,8 @@
 
   .testimonial-marquee-wrapper .marquee-track {
     gap: 1.25rem;
-    animation: marquee-scroll-mobile 1200s linear infinite !important;
-    animation-duration: 1200s !important;
+    animation: marquee-scroll-mobile 400s linear infinite !important;
+    animation-duration: 400s !important;
   }
 
   .marquee-container {
@@ -260,8 +260,8 @@
 
   .testimonial-marquee-wrapper .marquee-track {
     gap: 1rem;
-    animation: marquee-scroll-mobile-small 1000s linear infinite !important;
-    animation-duration: 1000s !important;
+    animation: marquee-scroll-mobile-small 350s linear infinite !important;
+    animation-duration: 350s !important;
   }
 
   .marquee-container {
