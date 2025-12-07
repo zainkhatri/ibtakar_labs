@@ -489,7 +489,6 @@ function App() {
                 itemScope
                 itemType="https://schema.org/Service"
               >
-                {service.popular && <div className="popular-badge">Most Popular</div>}
                 <h3 className="service-name" itemProp="name">{service.name}</h3>
                 <div className="service-price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
                   <span itemProp="price">{service.price}</span>
